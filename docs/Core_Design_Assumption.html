@@ -1,0 +1,49 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>核心设计假设（锁定）</title>
+<style>
+:root{--green:#0E6B50;--ink:#1f2933;--mut:#5b6770;--line:#e3e8ec;--bg:#f7f9fa;}
+*{box-sizing:border-box;}
+body{font-family:-apple-system,"Microsoft YaHei","PingFang SC",Segoe UI,Roboto,sans-serif;
+ color:var(--ink);line-height:1.75;margin:0;background:var(--bg);}
+.wrap{max-width:920px;margin:0 auto;padding:48px 28px 80px;background:#fff;
+ box-shadow:0 1px 3px rgba(0,0,0,.06);min-height:100vh;}
+h1{color:var(--green);font-size:30px;margin:0 0 6px;letter-spacing:.5px;}
+.sub{color:var(--mut);font-size:15px;margin:0 0 28px;font-weight:500;}
+h2{color:var(--green);font-size:20px;margin:34px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line);}
+p{margin:10px 0;font-size:15px;}
+strong{color:#0b3d2e;}
+.toc{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:16px 22px;margin:0 0 30px;}
+.toc b{color:var(--green);}
+.toc ol{margin:8px 0 0;padding-left:22px;}
+.toc li{margin:4px 0;font-size:14px;}
+footer{margin-top:48px;color:var(--mut);font-size:12.5px;border-top:1px solid var(--line);padding-top:14px;}
+</style>
+</head><body><div class="wrap">
+<h1>核心设计假设（锁定）</h1><p class="sub">AVG 探索世界默认采用「远」模式（虚构类比情景）+ 强制「应用迁移桥」</p>
+<div class="toc"><b>目录</b><ol><li>1 · 一句话假设</li><li>2 · 近 vs 远：定义与平台选择</li><li>3 · 应用迁移桥（强制环节 · Mandatory）</li><li>4 · 对工作流 / Pipeline / 离线包的影响</li><li>5 · 示例：团队决策与冲突管理 → 星际探索</li><li>6 · 校验规则（锁定）</li></ol></div>
+<h2>1 · 一句话假设</h2>
+<p>AVG 的探索世界<strong>默认采用「远」（虚构类比）情景</strong>，作为心理安全的练习场；学员在虚构世界中体验、探索、试错，沉淀出方法论与工具流程，再<strong>强制迁移应用到学员自身的真实工作场景</strong>。</p>
+<p>无论采用真实还是虚构场景，复盘（Reflection）之后都必须包含一个「将所学认知 / 方法 / 技能 / 流程 / 工具应用到真实场景与挑战」的环节——<strong>没有这条，学习与产品不成立。</strong></p>
+<h2>2 · 近 vs 远：定义与平台选择</h2>
+<p><strong>近（仿真真实）</strong>：场景就是学员的工作现场（会议室、客户拜访、绩效面谈）。<br>优点：直接、易共鸣。缺点：ego 威胁大（怕暴露无能）、创新受限、难以抽象出通用方法。</p>
+<p><strong>远（虚构类比）</strong>：场景是类比世界（星际探索、古堡谜案、末日避难所），用「距离」制造心理安全，学员更敢冒险、更易把具体经历抽象成通用方法。<br>缺点：需要做「翻译」——把虚构体验连回真实工作。</p>
+<p><strong>平台默认 = 远</strong>，并强制「应用迁移桥」补上翻译环节。客户如有强合规 / 强真实诉求可选「近」，但<strong>应用迁移桥不可省</strong>。</p>
+<h2>3 · 应用迁移桥（强制环节 · Mandatory）</h2>
+<p>位置：Reflection 阶段的最后一个子步，或独立成「应用（Application）」阶段。</p>
+<p>内容：学员带着在虚构世界中沉淀的方法论 / 工具 / 流程，回到<strong>自己真实的一个工作挑战</strong>，完成：</p>
+<p>· 我的真实挑战是什么（来自客户定制场景 / 学员自身）  <br>· 我会用哪个方法 / 工具  <br>· 第一步行动是什么（有时限）  <br>· 产出「真实场景应用卡 / 迁移行动计划」（离线包可带走产出物之一）</p>
+<h2>4 · 对工作流 / Pipeline / 离线包的影响</h2>
+<p><strong>Pipeline</strong>：在 Reflection 后（或其中）明确「应用迁移」子步；Ending 的 abilityRadar 要能映射到真实能力维度。</p>
+<p><strong>离线包</strong>：必须含「真实场景应用卡」模板（由 VR-RE05 校验）；DM 手册含「从虚构到真实」的引导话术。</p>
+<p><strong>校验</strong>：新增 VR-RE05（BLOCKER）——缺应用迁移桥，产品不得发布。</p>
+<h2>5 · 示例：团队决策与冲突管理 → 星际探索</h2>
+<p>课程主题：团队决策与冲突管理。</p>
+<p>我们选择：<strong>星际探索场景</strong>（飞船登陆未知星球，机组分歧、资源冲突、信任崩塌），而非工作场景。</p>
+<p>用途：在星际场景中体验和探索「分歧如何升级为冲突、不同决策风格的后果」，产出「冲突诊断—干预—共识」的方法论与工具流程；然后<strong>应用迁移桥</strong>：学员把这套方法带回到自己团队的真实决策冲突中，写出第一步行动。</p>
+<h2>6 · 校验规则（锁定）</h2>
+<p><strong>VR-RE05（复盘 / 应用，BLOCKER）</strong>：stages.reflection 或 stages.application 必须含 `realScenarioApplication` 字段（真实挑战 + 选用方法 + 有时限第一步），且离线包 `kit.takeawayTemplates` 含 `'realScenarioApplication'` 模板。</p>
+<p>失败信息：缺少「应用迁移桥」，所学无法落地到真实工作。</p>
+
+<footer>AVG Course Builder · 核心设计假设（锁定） · 本假设为产品不可动摇的前提，缺应用迁移桥则学习与产品不成立。</footer>
+</div></body></html>

@@ -70,6 +70,7 @@
 | `VR-RE04` | `kit.takeawayTemplates` | kit 含 takeawayTemplates（abilityRadar / actionPlan / consensus 至少其一） | **BLOCKER** | 离线包未内嵌可带走的成果模板 | 自动 |
 | `VR-RE02` | `stages.reflection[].principles` | 含心理安全原则标记：askBeforeTell / evidenceAnchored / nameBehaviorNotPerson | **WARN** | 复盘未贯彻心理安全原则 | 自动 |
 | `VR-RE03` | `stages.reflection[].commitment` | 以具体、有时限的承诺收尾（commitment 字段非空） | **WARN** | 复盘未落到具体行动承诺 | 自动 |
+| `VR-RE05` | `stages.reflection.realScenarioApplication / kit.takeawayTemplates` | reflection 含 realScenarioApplication（真实挑战+选用方法+有时限第一步），且 kit.takeawayTemplates 含 'realScenarioApplication' | **BLOCKER** | 缺少应用迁移桥，所学无法落地到真实工作 | 自动 |
 
 ### 离线包
 

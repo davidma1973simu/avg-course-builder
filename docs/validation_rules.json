@@ -48,7 +48,12 @@
         "nameBehaviorNotPerson"
       ],
       "commitment": "",
-      "takeawayTemplateRef": ""
+      "takeawayTemplateRef": "",
+      "realScenarioApplication": {
+        "challenge": "",
+        "method": "",
+        "firstStep": ""
+      }
     },
     "NPCEntity": {
       "name": "",
@@ -432,6 +437,16 @@
       "severity": "WARN",
       "fail": "疑似唯一最优解直接通关",
       "source": "门禁·分支健康"
+    },
+    {
+      "id": "VR-RE05",
+      "stage": "应用迁移桥",
+      "path": "stages.reflection.realScenarioApplication | kit.takeawayTemplates",
+      "auto": true,
+      "check": "reflection 含 realScenarioApplication（真实挑战+选用方法+有时限第一步），且 kit.takeawayTemplates 含 'realScenarioApplication'",
+      "severity": "BLOCKER",
+      "fail": "缺少应用迁移桥，所学无法落地到真实工作",
+      "source": "核心假设·应用迁移桥"
     }
   ]
 }

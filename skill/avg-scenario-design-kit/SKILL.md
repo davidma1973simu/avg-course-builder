@@ -50,10 +50,10 @@ description: >-
 | `references/jubensha_playbook.md` | 剧本杀企业培训：设计 → 交付 → 运营方法论 + 线下包组件 | 设计期 / 离线包 |
 | `references/case_library.md` | 案例库：优秀 AVG 游戏 + 真实剧本杀培训产品 | 佐证 / 对标 |
 | `references/design_checklists.md` | 设计期检查清单（按平台工作区/阶段 + 通用门禁） | Validation |
-| `references/validation_rules.md` | 自动校验规则（37 条，机器可读；同源 `validation_rules.json`） | Validation / 导出门禁 |
+| `references/validation_rules.md` | 自动校验规则（38 条，机器可读；同源 `validation_rules.json`） | Validation / 导出门禁 |
 | `references/offline_package_spec.md` | 线下产品包实体物料规格（纸张/卡牌尺寸/工艺/出血/成本锚） | 离线包导出（E6） |
 
-## 六条跨领域心法（调用前先读）
+## 七条跨领域心法（调用前先读）
 
 1. **受控的能动性（Constrained Agency）**：作者设计"可能性空间"，玩家在其中导航。
    用**虚构内的约束**（人物性格、环境、信息差、时间压力）而非任意限制来收口。
@@ -68,6 +68,9 @@ description: >-
 6. **线下包的"可带走产出物"**：剧本杀学习迁移的关键，是学员带走的成果
    （能力雷达图、行动计划、共识制度）。本平台离线包必须内嵌**可带走的成果模板**，
    否则培训"热闹但业务不变"。
+7. **核心假设：远场景 + 应用迁移桥（不可动摇）**：AVG 探索世界默认用**虚构类比（远）**情景制造心理安全，
+   学员在虚构中体验/试错、沉淀方法论与工具；**复盘后必须强制「应用迁移桥」**——把所学迁移到学员自身真实工作挑战。
+   **没有这条，学习与产品不成立**（校验 VR-RE05）。详见仓库 `docs/Core_Design_Assumption`。
 
 > 调用方式：根据当前任务，读取对应 `references/` 文件，提取机制/方法论/清单，
 > 结合 PRD 的 12 阶段流水线、AVG Project JSON Schema、Validation 门禁给出设计建议。
