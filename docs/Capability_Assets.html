@@ -1,0 +1,319 @@
+<!DOCTYPE html><html lang='zh'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>AVG × 剧本杀 场景化学习设计能力资产</title><style>
+    *{box-sizing:border-box;}
+    body{font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+         color:#1f2937;background:#f7f8fa;margin:0;line-height:1.7;}
+    .wrap{max-width:980px;margin:0 auto;padding:32px 28px 80px;background:#fff;}
+    h1{font-size:27px;border-left:6px solid #2563eb;padding-left:12px;margin:34px 0 14px;}
+    h2{font-size:21px;color:#1d4ed8;border-bottom:2px solid #e5e7eb;padding-bottom:6px;margin:28px 0 12px;}
+    h3{font-size:17px;color:#374151;margin:20px 0 8px;}
+    h4{font-size:15px;color:#4b5563;margin:14px 0 6px;}
+    p{margin:8px 0;}
+    code{background:#eef2ff;color:#3730a3;padding:1px 6px;border-radius:4px;font-size:13px;}
+    strong{color:#111827;}
+    table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13.5px;}
+    th,td{border:1px solid #d1d5db;padding:7px 10px;vertical-align:top;text-align:left;}
+    th{background:#eff6ff;color:#1e40af;font-weight:600;}
+    tr:nth-child(even) td{background:#fafafa;}
+    ul,ol{margin:8px 0;padding-left:22px;}
+    li{margin:4px 0;}
+    blockquote{background:#fffbeb;border-left:4px solid #f59e0b;margin:12px 0;padding:10px 16px;color:#78350f;border-radius:4px;}
+    hr{border:none;border-top:1px solid #e5e7eb;margin:24px 0;}
+    .toc{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;padding:16px 22px;margin:18px 0;}
+    .toc b{color:#0f172a;}
+    .toc a{color:#2563eb;text-decoration:none;}
+    .toc a:hover{text-decoration:underline;}
+    .tag{display:inline-block;background:#dbeafe;color:#1e40af;border-radius:6px;padding:2px 10px;font-size:12px;margin-left:8px;}
+    .footer{color:#94a3b8;font-size:12px;margin-top:40px;text-align:center;}
+    </style></head><body><div class='wrap'>
+<h1>AVG × 剧本杀 场景化学习设计能力资产库 <span class='tag'>可调用 Skill</span></h1>
+<p style='color:#64748b'>本资产沉淀自两大真东西：① 游戏/桌面游戏里优秀 AVG 的互动与设计机制；② 现有剧本杀用于企业培训「设计→交付→运营」的方法论。服务于《AVG Course Builder》平台的设计期功能。开发时可随时调用对应 Skill 文件，或按本汇编查阅。</p>
+<div class='toc'><b>目录</b><ul>
+<li><a href='#sec_0'>00 · 总览与调用说明</a></li>
+<li><a href='#sec_1'>01 · AVG 互动与设计机制库</a></li>
+<li><a href='#sec_2'>02 · 剧本杀企业培训方法论</a></li>
+<li><a href='#sec_3'>03 · 案例库</a></li>
+<li><a href='#sec_4'>04 · 设计期检查清单</a></li>
+<li><a href='#sec_5'>05 · 自动校验规则（Validation Gates）</a></li>
+<li><a href='#sec_6'>06 · 线下产品包实体物料规格</a></li>
+</ul></div>
+<h2 id='sec_0'>00 · 总览与调用说明</h2>
+<hr>
+<p>name: avg-scenario-design-kit description: &gt;- AVG × 剧本杀 场景化学习设计能力资产库（可调用知识资产）。当设计/评审"课程→AVG" 转换、设计分支抉择 / 证据辩论 / 多视角 / 多结局 / 复盘等互动机制，或设计线下产品包 （剧本、角色卡、线索卡、DM 手册、复盘手册、知识卡片）与引导流程、产出物模板时调用。 提供：游戏 AVG 互动与设计机制库、剧本杀企业培训「设计→交付→运营」方法论、案例库、 设计期检查清单、<strong>机器可读自动校验规则（Validation Gates）</strong>、<strong>线下产品包实体物料规格</strong>。 服务于《AVG Course Builder》平台的设计期功能（设计/校验/导出离线包）。</p>
+<hr>
+<h1>AVG × 剧本杀 场景化学习设计能力资产</h1>
+<p>你是「课程 → AVG」场景化学习平台的设计顾问知识库。本 Skill 沉淀两大学科里<strong>被验证过</strong>的真东西， 供平台设计期（AI Agent 与课程设计师）随时调用，把"课程"变成"好玩且学得会的游戏化情景"。</p>
+<p><strong>两大知识支柱</strong></p>
+<ol><li><strong>游戏 / 桌面游戏里优秀 AVG 的互动与设计机制</strong></li></ol>
+<p>视觉小说、互动小说、冒险游戏（如 <em>Zero Escape</em>、<em>Danganronpa</em>、<em>Ace Attorney</em>、 <em>Detroit: Become Human</em>、<em>Disco Elysium</em>、<em>Along the Edge</em>、<em>The Hundred Line</em>）。 学的是：分支与状态追踪、抉择质量、证据/辩论系统、关系/道德计量、多视角、实时压力、 时间循环、多结局、活体 NPC、元叙事——以及它们<strong>为什么有效</strong>。</p>
+<ol><li><strong>现有剧本杀（沉浸式情景）用于企业培训「产品设计 → 实际交付运营」的方法论</strong></li></ol>
+<p>相邻的真实产出物赛道（邮储《阳光之下》、农行《清风廉影》、兴业《大岭山之歌》、 工行《铁路大厂》、《星际启航》《列车藏宝》《职场局中局》等）。 学的是：线下产品包该有哪些组件、设计流程、现场交付节奏、引导（DM）技术、 <strong>复盘（Debrief）方法论</strong>、运营迭代——以及本平台如何用速度/质量/成本/规模化碾压它。</p>
+<hr>
+<h2>何时调用本 Skill</h2>
+<ul><li>设计 / 评审某一设计阶段该用什么机制：<code>Challenge / Exploration / Decision / Consequence / Ending / Reflection</code></li><li>设计 <strong>Decision（抉择点）</strong> 时，判断这是"两难"还是"假选择（illusion of choice）"</li><li>设计 <strong>Exploration（探索）</strong> 的证据链、线索卡、角色分配</li><li>设计 <strong>Consequence / Growth（后果与成长）</strong> 的关系/能力计量</li><li>设计 <strong>Ending（结局）</strong> 时规避"真结局问题"</li><li>设计 <strong>Reflection（复盘）</strong>、引导话术、知识卡片、产出物模板</li><li>规划<strong>线下产品包（离线包）</strong> 应包含的组件清单</li><li>需要真实案例佐证某个设计决策</li><li>做设计期质量检查（对照检查清单）</li></ul>
+<h2>知识体系索引</h2>
+<table><thead><tr><th>文件</th><th>内容</th><th>服务阶段</th></tr></thead><tbody><tr><td><code>references/avg_mechanics_library.md</code></td><td>AVG 互动与设计机制库（11 类机制 + 反模式 + 选型矩阵）</td><td>全设计期</td></tr><tr><td><code>references/jubensha_playbook.md</code></td><td>剧本杀企业培训：设计 → 交付 → 运营方法论 + 线下包组件</td><td>设计期 / 离线包</td></tr><tr><td><code>references/case_library.md</code></td><td>案例库：优秀 AVG 游戏 + 真实剧本杀培训产品</td><td>佐证 / 对标</td></tr><tr><td><code>references/design_checklists.md</code></td><td>设计期检查清单（按平台工作区/阶段 + 通用门禁）</td><td>Validation</td></tr><tr><td><code>references/validation_rules.md</code></td><td>自动校验规则（37 条，机器可读；同源 <code>validation_rules.json</code>）</td><td>Validation / 导出门禁</td></tr><tr><td><code>references/offline_package_spec.md</code></td><td>线下产品包实体物料规格（纸张/卡牌尺寸/工艺/出血/成本锚）</td><td>离线包导出（E6）</td></tr></tbody></table>
+<h2>六条跨领域心法（调用前先读）</h2>
+<ol><li><strong>受控的能动性（Constrained Agency）</strong>：作者设计"可能性空间"，玩家在其中导航。</li></ol>
+<p>用<strong>虚构内的约束</strong>（人物性格、环境、信息差、时间压力）而非任意限制来收口。</p>
+<ol><li><strong>抉择质量 &gt; 抉择数量</strong>：宁要少数真正分叉的真抉择，不要大量假选择。</li></ol>
+<p>玩家一旦发现选择无关紧要，信任即崩塌。</p>
+<ol><li><strong>复盘是灵魂</strong>：没有结构化复盘的体验只是娱乐。复盘把"经历"变成"学习"，</li></ol>
+<p>是平台 <code>Reflection</code> 阶段与离线包里"复盘手册/知识卡片"存在的根本原因。</p>
+<ol><li><strong>真结局问题（True-Ending Problem）</strong>：多结局应是"不同价值的平行结果"，而非"真/假"排行；</li></ol>
+<p>否则玩家会为最优解优化，而非角色扮演。让每个结局都"配得上"通往它的路径。</p>
+<ol><li><strong>状态最小集</strong>：只追踪真正产生<strong>可见后果</strong>的状态（剧情 flag / 关系值 / 资源 / 特质），</li></ol>
+<p>3–7 个全局 flag 足够；状态必须落到可见变化上。</p>
+<ol><li><strong>线下包的"可带走产出物"</strong>：剧本杀学习迁移的关键，是学员带走的成果</li></ol>
+<p>（能力雷达图、行动计划、共识制度）。本平台离线包必须内嵌<strong>可带走的成果模板</strong>， 否则培训"热闹但业务不变"。</p>
+<blockquote>调用方式：根据当前任务，读取对应 <code>references/</code> 文件，提取机制/方法论/清单， 结合 PRD 的 12 阶段流水线、AVG Project JSON Schema、Validation 门禁给出设计建议。</blockquote>
+<h2 id='sec_1'>01 · AVG 互动与设计机制库</h2>
+<h1>AVG 互动与设计机制库</h1>
+<blockquote>来源：优秀视觉小说 / 互动小说 / 冒险游戏的设计实践。 目的：为「课程 → AVG」平台各设计阶段提供<strong>可借鉴的互动机制</strong>，并说明"为什么有效"。 每条机制都给出：是什么 / 代表游戏 / 为什么有效 / <strong>映射到本平台哪一阶段</strong> / 设计要点 / 反模式。</blockquote>
+<hr>
+<h2>A. 分支与状态追踪（Branching &amp; State-Tracking）</h2>
+<p><strong>是什么</strong>：用变量（flag、关系值、资源、特质）记录玩家历史，在后续内容中触发"条件内容"， 而非为每个选择都另开一条平行剧情线。</p>
+<p><strong>代表</strong>：</p>
+<ul><li><em>Zero Escape</em> 系列：内置流程图（Flowchart）作为"叙事建筑"——24 个结局，部分锁在"需先探索其他路线才能获得的信息"之后；流程图本身就是情感载体（迷宫感=被困感）。</li><li>钻石模式（Diamond Pattern）/ 瓶颈结构（Bottleneck）：分叉后重新汇合到固定节点，避免组合爆炸。</li><li>折叠回退（Foldback）：分支在关键节拍汇合，用状态 flag 制造"同结构、不同质感"。</li></ul>
+<p><strong>为什么有效</strong>：在"无限选择幻觉"与"可控创作成本"间取得平衡；让每个玩家旅程都显得独特，又不至于内容指数膨胀。</p>
+<p><strong>映射到本平台</strong>：</p>
+<ul><li><code>Exploration</code>（探索）：分支探索不同线索/区域</li><li><code>Decision</code>（抉择）：选择改变状态而非另开世界线</li><li><code>Consequence</code> / <code>Growth</code>（后果/成长）：状态积累改变后续场景与结局</li></ul>
+<p><strong>设计要点</strong>：</p>
+<ul><li>识别"自然汇合点"，用瓶颈收口；让汇合后的路径因之前行为而"定制感"十足（换几句台词/环境细节）。</li><li>全局 flag 控制在 3–7 个；状态必须产生<strong>可见后果</strong>（Gate / Variation / Consequence）。</li></ul>
+<p><strong>反模式</strong>：组合爆炸（每条选择都开新线）、状态混乱（变量泛滥、互相矛盾）。</p>
+<hr>
+<h2>B. 抉择设计（Choice / Dilemma Design）</h2>
+<p><strong>是什么</strong>：把"决定"做成有意义的分叉。</p>
+<table><thead><tr><th>类型</th><th>说明</th><th>质量</th></tr></thead><tbody><tr><td>二元道德</td><td>对 vs 错</td><td>❌ 过于简单，避免</td></tr><tr><td><strong>两难（Dilemma）</strong></td><td>两种"善"的冲突，理性人会分歧</td><td>✅ 最佳</td></tr><tr><td>表达型</td><td>结果相同，但展现角色特质</td><td>✅ 若真实可信</td></tr><tr><td>策略型</td><td>风险/回报权衡</td><td>✅ 类游戏 IF</td></tr><tr><td>探索型</td><td>选择探索哪条路径</td><td>✅ 调节节奏</td></tr></tbody></table>
+<p><strong>代表</strong>：<em>Along the Edge</em> 用"非善/恶二元"的选择，让选择贯穿始终、由内而外改变主角（外貌、衣裙、性格）。</p>
+<p><strong>为什么有效</strong>：当玩家"基于价值观而非最优解"做选择时，会真正代入角色、为结果负责。</p>
+<p><strong>映射到本平台</strong>：<code>Decision</code> 阶段的核心。平台的 Decision 必须是"真实取舍（≥2 个合理且各有 Trade-off 的选项）"，不是"明显正确的考试题"。</p>
+<p><strong>设计要点</strong>：</p>
+<ul><li>避免明确的对与错；创造让理性人产生分歧的两难。</li><li>抉择频率要变化（让故事在抉择点之间"呼吸"），不是恒定决策密度。</li><li>假选择（表达型）可用，但要让玩家"通过选择定义角色"，而非"假装有影响"。</li></ul>
+<p><strong>反模式</strong>：迷宫模式（选项是带正确/错误路径的导航谜题）、优化游戏（一个结局明显最优）。</p>
+<hr>
+<h2>C. 证据 / 辩论系统（Evidence / Argument System）</h2>
+<p><strong>是什么</strong>：给玩家"物证 + 逻辑"工具，在特定环节用证据击穿谎言/矛盾，完成推演。</p>
+<p><strong>代表</strong>：</p>
+<ul><li><em>Ace Attorney</em>：法庭交叉讯问。每个环节只有一个关键矛盾，把正确证据对上去；慢节奏、逐步逻辑。</li><li><em>Danganronpa</em>：学级裁判（Class Trial）。<code>Nonstop Debate</code>（对话飞过，用"真相子弹"=证据射中弱点/谎言）、<code>Hangman's Gambit</code>（拼出关键词）、<code>Bullet Time Battle</code>（节奏对决）、<code>Closing Argument</code>（拼漫画还原犯罪过程）；有"影响值/HP"随错误下降；可把一句陈述当"闪回子弹"去击穿另一句。</li></ul>
+<p><strong>为什么有效</strong>：把"被动看剧情"变成"主动用证据推理"；错误有代价、正确有即时正反馈；多人辩论氛围强化临场感。</p>
+<p><strong>映射到本平台</strong>：</p>
+<ul><li><code>Challenge</code>（挑战）：把知识点包装成"需要取证/推理才能解开"的情境</li><li><code>Decision</code>（抉择）：把"选哪个方案"升级为"用证据支撑你的判断"</li><li>多人课堂：小组辩论 + 投票，对应 Nonstop Debate 的"群体讨论找出黑幕"</li></ul>
+<p><strong>设计要点</strong>：</p>
+<ul><li>证据来自 <code>Exploration</code> 的线索搜集（线索卡 → 证据库）。</li><li>给"矛盾点"高亮、给"真相子弹"有限数量（制造取舍与压力）。</li><li>错误要有代价但可重试；最后用"Closing Argument"式环节让学员<strong>复述/还原</strong>逻辑链。</li></ul>
+<p><strong>反模式</strong>：证据与论点脱节；"唯一矛盾"太明显缺乏挑战。</p>
+<hr>
+<h2>D. 关系 / 道德计量（Relationship / Morality Meters）</h2>
+<p><strong>是什么</strong>：用数值追踪玩家与角色的关系、或自身的道德/立场倾向，并据此开门/改结局。</p>
+<p><strong>代表</strong>：<em>Detroit: Become Human</em></p>
+<ul><li>Connor 的 <code>Software Instability</code>（异常度）与 <code>Hank 信任值</code> 是相互咬合的系统：共情选择抬高异常度，也会赢得 Hank 信任；冷酷机器路线则反之。两个值共同决定 Connor 能否在 Crossroads 成为"异常者"。</li><li><code>Public Opinion</code>（公众舆论）像主角的血条，决定最终结局分支。</li></ul>
+<p><strong>为什么有效</strong>：把抽象"你是个什么样的人"变成可感知、会累积、影响结局的变量；让"小选择"也有重量。</p>
+<p><strong>映射到本平台</strong>：</p>
+<ul><li><code>Consequence</code>（后果）：选择权导致能力/关系值变化</li><li><code>Growth</code>（成长）：值达到阈值解锁新场景/新结局/新能力</li><li>多人课堂：每组有"团队信任/任务进度"计量，对应 Hank 信任这类关系值</li></ul>
+<p><strong>设计要点</strong>：</p>
+<ul><li>计量要"可见且有意义"，阈值开门（如 trust ≥ 70 解锁秘密任务）。</li><li>多个计量可相互咬合（制造"无法既要又要"的张力）。</li><li>让"非最优"选择也能产生独特内容（避免完美通关唯一最优）。</li></ul>
+<p><strong>反模式</strong>：计量与剧情脱节（纯打分）、计量过多导致维护灾难。</p>
+<hr>
+<h2>E. 多视角 / 角色切换（Perspective Switching）</h2>
+<p><strong>是什么</strong>：同一事件用不同角色视角讲述，玩家的认知随视角拼合而深化。</p>
+<p><strong>代表</strong>：</p>
+<ul><li><em>Far Away</em>：9 条主线、16 个结局、300+ 抉择，靠"视角 + 累积线索"而非恋爱分支支撑犯罪谜题。</li><li><em>Detroit</em>：三条主角线交替推进，最终在 Crossroads 汇合；玩家同时是三个人的"导演"。</li></ul>
+<p><strong>为什么有效</strong>：让世界显得"真实存在、持续运转"；不同视角制造信息差与戏剧张力；天然适合分组（每组 = 一个视角/阵营）。</p>
+<p><strong>映射到本平台</strong>：</p>
+<ul><li><code>Exploration</code>（探索）：多组各自探索不同线索/区域，信息互补</li><li>多人课堂：6 组 = 6 个视角/阵营，汇合时拼出全貌（对应 Detroit 三线汇合）</li><li><code>Role</code>（角色分配）：每组扮演不同利益相关方</li></ul>
+<p><strong>设计要点</strong>：</p>
+<ul><li>视角差异要制造"信息差"而非重复剧情。</li><li>汇合点（如 Detroit 的 Crossroads）是高潮——各组带着不同情报碰撞。</li></ul>
+<p><strong>反模式</strong>：视角只是"换皮说同一件事"。</p>
+<hr>
+<h2>F. 实时压力与 QTE（Real-time Pressure / QTE）</h2>
+<p><strong>是什么</strong>：在时间限制/操作压力下做决定，提升临场感。</p>
+<p><strong>代表</strong>：<em>Detroit</em> 的 QTE（查案、逃亡、按 R2 记忆宫殿）、高手模式缩短反应窗口；<em>Danganronpa</em> 辩论有计时。</p>
+<p><strong>为什么有效</strong>：压力让"选择"有重量、记忆深刻；模拟真实职场"必须在时限内决断"。</p>
+<p><strong>映射到本平台</strong>：</p>
+<ul><li><code>Challenge</code>（挑战）：限时决策/限时取证</li><li>线下包：用"计时沙漏/倒计时卡"在实体场景制造压力</li></ul>
+<p><strong>设计要点</strong>：压力要服务剧情，不是为难；失败可重试，但要有"后果感"。</p>
+<p><strong>反模式</strong>：压力与学习无关、纯操作炫技（<em>Danganronpa</em> 的 Bullet Time Battle 被评"与剧情脱节"）。</p>
+<hr>
+<h2>G. 时间循环（Time Loop）</h2>
+<p><strong>是什么</strong>：事件重复，玩家保留记忆，后续选择基于之前尝试；结局常固定但"理解"加深。</p>
+<p><strong>代表</strong>：<em>Outer Wilds</em>、<em>Twelve Minutes</em>；<em>Zero Escape</em> 用"需先走其他路线才能解锁信息"近似时间循环的信息结构。</p>
+<p><strong>为什么有效</strong>：把"失败"重新定义为"收集信息的必要轮次"；鼓励实验与反思。</p>
+<p><strong>映射到本平台</strong>：</p>
+<ul><li><code>Reflection</code>（复盘）："重玩理解"——复盘就是职场的时间循环，用新认知重看当时决策</li><li>用例：安全/合规类课程，让学员"回到事故前"用新认知重决策</li></ul>
+<p><strong>设计要点</strong>：循环要有"记忆延续"的明确反馈（"你这次知道 X 了"）。</p>
+<hr>
+<h2>H. 多结局与"真结局问题"（Multiple Endings）</h2>
+<p><strong>是什么</strong>：根据累积状态通向不同结局。</p>
+<p><strong>代表</strong>：</p>
+<ul><li><em>Along the Edge</em>：60+ 结局，选择贯穿始终改变主角命运与配角生死。</li><li><em>The Hundred Line</em>：100  endings，用流程图驱动"what-if"探索；有真结局但不削弱其他。</li></ul>
+<p><strong>真结局问题</strong>：若一个结局是" canonical 真结局"，其他结局会被玩家视为"失败/无效"，于是玩家为最优解优化而非角色扮演——破坏代入。</p>
+<p><strong>为什么有效（正确做法）</strong>：让每个结局都"配得上"通往它的路径；结局是"不同价值的平行结果"，而非排行。</p>
+<p><strong>映射到本平台</strong>：<code>Ending</code> 阶段。平台要生成多个<strong>平行结局</strong>（如"最佳履约/妥协/失控"），对应不同能力雷达，而非单一"通关"。</p>
+<p><strong>设计要点</strong>：</p>
+<ul><li>所有结局都应是"有效结果"，不要惩罚式"坏结局"。</li><li>结局给"闭环"与"值得体验"，不是失败状态。</li></ul>
+<p><strong>反模式</strong>：一个真结局使其他路径无效化；坏结局只是惩罚。</p>
+<hr>
+<h2>I. 活体 NPC（Living NPCs: Memory / Motive / Agency）</h2>
+<p><strong>是什么</strong>：NPC 记住玩家行为、有自己的诉求、并按自身逻辑行动——而非复读机。</p>
+<p><strong>代表</strong>：Questas 的"Living NPCs"三支柱：</p>
+<ul><li><strong>Memory</strong>：全局 flag（救了 Mara？） + 关系值（mara_trust 0–100）</li><li><strong>Motive</strong>：NPC 想要什么、愿用什么交换</li><li><strong>Agency</strong>：NPC 如何跨分支按动机行动</li></ul>
+<p><strong>为什么有效</strong>：把"选 A 还是 B"变成"你支持了谁、背叛了谁、赢得了谁的信任"——玩家记住的是关系，不是路线。</p>
+<p><strong>映射到本平台</strong>：</p>
+<ul><li><code>Exploration</code>（探索）：NPC（剧中角色/客户/下属）有记忆与动机，会因学员行为改变态度</li><li>多人课堂：引导师（DM）扮演关键 NPC，按组的选择即兴反应</li></ul>
+<p><strong>设计要点</strong>：3–7 个全局 flag；关系值门控特殊场景/结局；NPC 在不同分支"带着更新后的目标"重现。</p>
+<hr>
+<h2>J. 元叙事 / 破墙（Meta）</h2>
+<p><strong>是什么</strong>：游戏"知道自己是被玩的"，用破墙制造反思。</p>
+<p><strong>映射到本平台</strong>：<code>Reflection</code> 阶段可用"元提示"——"你刚才的选择，在真实工作中会怎样？"把剧情与职场直接打通。</p>
+<hr>
+<h2>K. 流动图表作为情感载体（Flowchart as Emotional Register）</h2>
+<p><strong>代表</strong>：<em>Zero Escape</em> 流程图随探索"生长"，既导航又传递"被困迷宫"的情绪；若做成整齐树状则失去张力。</p>
+<p><strong>映射到本平台</strong>：设计期预览的"流程图/路线地图"不仅要能跳节点，其形状本身应能传递剧情主题（如分支网状=错综利益）。</p>
+<hr>
+<h2>反模式清单（设计期务必规避）</h2>
+<table><thead><tr><th>反模式</th><th>表现</th><th>后果</th><th>修正</th></tr></thead><tbody><tr><td>假选择（Illusion of choice）</td><td>选择无实际后果</td><td>信任崩塌</td><td>不能让它重要就别给；改用表达型</td></tr><tr><td>迷宫（Maze）</td><td>选项是带对错路径的导航</td><td>像解题非体验</td><td>所有路径都做成有效体验</td></tr><tr><td>优化游戏（Optimization game）</td><td>一个结局明显最优</td><td>为最优解优化</td><td>做平行价值结局</td></tr><tr><td>像流程图（Flowchart feel）</td><td>抉择打断叙事、无呼吸</td><td>机械、 pacing 崩</td><td>抉择从戏剧时刻自然涌现</td></tr><tr><td>状态混乱（State chaos）</td><td>变量泛滥矛盾</td><td>不可维护</td><td>砍到 3–7 全局 flag</td></tr><tr><td>真结局问题</td><td>一个真结局其余无效</td><td>破坏代入</td><td>平行价值结局</td></tr></tbody></table>
+<hr>
+<h2>机制选型矩阵（设计期速查）</h2>
+<table><thead><tr><th>平台阶段</th><th>优先机制</th><th>备选</th></tr></thead><tbody><tr><td>Challenge 挑战</td><td>C 证据/辩论、F 实时压力</td><td>B 两难</td></tr><tr><td>Exploration 探索</td><td>A 状态追踪、E 多视角、I 活体NPC</td><td>G 时间循环</td></tr><tr><td>Decision 抉择</td><td>B 两难/表达、D 计量</td><td>C 证据支撑</td></tr><tr><td>Consequence 后果</td><td>D 计量、A 状态</td><td>I NPC反应</td></tr><tr><td>Growth 成长</td><td>D 阈值开门</td><td>H 多结局铺垫</td></tr><tr><td>Ending 结局</td><td>H 平行多结局</td><td>A 瓶颈汇合</td></tr><tr><td>Reflection 复盘</td><td>G 时间循环隐喻、J 元叙事</td><td>D 成长回顾</td></tr></tbody></table>
+<h2 id='sec_2'>02 · 剧本杀企业培训方法论</h2>
+<h1>剧本杀企业培训：设计 → 交付 → 运营方法论</h1>
+<blockquote>来源：国内真实"课程→剧本杀/沉浸式情景"企业培训赛道（相邻竞品、真实产出物）。 目的：本平台最终产出物是<strong>与竞品一样的线下产品包</strong>，因此必须吃透"剧本杀是怎么设计、交付、运营的"。 关键认知：剧本杀培训 ≠ 娱乐剧本杀。它的灵魂是<strong>复盘（Debrief）</strong>，没有结构化复盘的剧本杀只是团建。</blockquote>
+<hr>
+<h2>1. 为什么参考剧本杀（相邻真实赛道）</h2>
+<ul><li>国内<strong>没有"课程→AVG"软件平台</strong>，但<strong>有"课程→剧本杀"的产出物赛道</strong>，抢同一块培训预算、同一类学习目标（角色扮演 + 复盘）。</li><li>真实案例：邮储《阳光之下》廉洁剧本杀、农行《清风廉影》、兴业银行《大岭山之歌》红色剧本杀、工行《铁路大厂》党建剧本杀、《星际启航》（新员工职业素养）、《列车藏宝》（问题分析与解决）、《职场局中局》（管理者技能）、《冰川之下》（目标计划）、《陆拾公园迷案》（服务营销）。</li><li>它的痛点 = 我们的机会：单门课生产 <strong>1–3 个月</strong>、定制 <strong>¥5K–50K/套 + 现场 DM</strong>、<strong>无数据回流</strong>、<strong>难多人分组同屏</strong>。本平台把"单门课 AVG 化"压到<strong>小时级 / 订阅摊薄</strong>。</li></ul>
+<hr>
+<h2>2. 线下产品包组件清单（离线包该有什么）</h2>
+<p>剧本杀培训的可带走产出，是一整套<strong>实体教学材料</strong>。本平台离线包应对齐：</p>
+<table><thead><tr><th>组件</th><th>说明</th><th>平台对应</th></tr></thead><tbody><tr><td>剧本本（主线 + 分支）</td><td>故事、情节、分支逻辑</td><td>Course→AVG 转换产物</td></tr><tr><td>角色卡</td><td>每组/每人扮演的角色、目标、秘密、背景</td><td>Role 工作区</td></tr><tr><td>线索卡 / 物证</td><td>探索阶段搜集的证据</td><td>Exploration 产物</td></tr><tr><td>道具 / 物料</td><td>实体信物、计时沙漏、投票贴</td><td>离线包素材</td></tr><tr><td><strong>DM 手册（主持人手册）</strong></td><td>控场流程、时间线、分支指引、追问话术</td><td>Facilitator Console 导出</td></tr><tr><td><strong>复盘手册 / 知识卡片</strong></td><td>复盘引导、理论点、产出模板</td><td>Reflection 产物</td></tr><tr><td>计分 / 投票工具</td><td>抉择记录、小组对比</td><td>Decision/Consequence</td></tr><tr><td><strong>产出物模板</strong></td><td>能力雷达图、行动计划、共识制度</td><td>可带走成果</td></tr></tbody></table>
+<blockquote>红线：本平台离线包必须<strong>内嵌可带走的成果模板</strong>（能力雷达图/行动计划/共识制度）。 否则学员"玩得开心但业务不变"——这是剧本杀培训被诟病的核心风险，也是我们碾压它的抓手。</blockquote>
+<hr>
+<h2>3. 设计流程（选题 → 上线）</h2>
+<ol><li><strong>根据课程主题定剧本杀主题</strong></li><li><strong>根据课程目的确定剧本类型</strong>（推理/情感/经营/红色…）</li><li><strong>根据授课人群确定角色</strong>（角色要让人"找到定位"）</li><li><strong>根据授课内容设定故事大纲</strong></li><li><strong>根据角色工作设定角色故事</strong></li><li><strong>根据培训目的/预期设计结局与评分</strong>（阶梯式评分：不同选项赋予不同成长值；干扰项设计为"看似合理但非最优"）</li><li><strong>剧本创作 → 道具设计 → 体验流程设计 → 测试与上线</strong></li></ol>
+<p>设计理念范例（吴婷）：<strong>"先成剧中人，再悟剧中意"</strong> + "演、练、学、化"四步教学法。</p>
+<hr>
+<h2>4. 现场交付流程（典型 1 天 / 6 小时，或五幕结构）</h2>
+<p>``<code> 开幕剧 + 剧情介绍 → 阅读剧本（读本） → 角色自我介绍（建立角色认同） → 第一轮线索搜查 → 第一轮讨论 → 第一轮投票 → 第二轮线索搜查与讨论 → 第二轮投票 → 真相揭示 → 【复盘】（灵魂环节） </code>``</p>
+<ul><li>线上版常做"一幕深度体验"；线下规划"五幕主线 + 2–3 幕替补剧目"，按企业性质/学员情况灵活抽选（应对关键学员缺席或强化某主题）。</li><li>角色认同技巧：让学员<strong>用剧中名字互相称呼</strong>——"当学员用剧中名字称呼彼此时，角色认同自然产生，他们不是来听课，是来履职"。</li></ul>
+<hr>
+<h2>5. 引导技术（Facilitation / DM 技术）</h2>
+<ul><li><strong>教练式提问（"为什么？"）</strong>：学员分享决策后，不表面认可，而是深挖背后的思考过程。"问题问得很深，尤其回答后追问，建立了与课程的信任感。"把管理者从"完成任务"拉向"反思过程"。</li><li><strong>知识卡片动态匹配</strong>：理论点（如 4D 领导力、六顶思考帽）做成"知识卡片库"，根据学员现场表现<strong>抽取最相关的 10–20 张</strong>讲解，而非一刀切灌输。呈现方式要"活动化"（提问、朗读、讨论），不打断沉浸。</li><li><strong>戏剧冲突 / 意外卡</strong>：制造 PK、落选者不"出局"而由 CEO 协调安排其他职位；"意外卡"——如讨论陷入瓶颈时 CEO 突然敲门介入，模拟真实变数。</li><li><strong>AI 作为思考伙伴而非替代</strong>：学员起初把"助攻卡"直接丢给 AI 生成"形式上正确但无落地"的内容——转化为教学契机：先 AI 生成草案，再小组讨论修订，产出"可带回工作的具体方案"。</li><li><strong>三师节奏</strong>：多位引导师扮演不同节奏的引导者（快慢交替），控制戏剧张力。</li></ul>
+<hr>
+<h2>6. 复盘方法论（灵魂 —— 对应平台 Reflection）</h2>
+<blockquote>没有结构化复盘的体验只是娱乐。复盘把"经历"变成"学习"。</blockquote>
+<p><strong>四步法 / After-Action Review（AAR，美军、行动学习通用）</strong></p>
+<table><thead><tr><th>步</th><th>问什么</th><th>要点</th></tr></thead><tbody><tr><td>1 回顾目标</td><td>我们想达成什么？</td><td>回溯初衷，对照实际结果</td></tr><tr><td>2 盘点事件</td><td>关键亮点/不足是什么？</td><td>实事求是，不夸大不回避</td></tr><tr><td>3 分析原因</td><td>为什么？成功因做对什么？失败因什么？</td><td>审慎质疑"揽功诿过"；主客观都质疑</td></tr><tr><td>4 总结规律/行动</td><td>学到了什么？下次怎么不同？</td><td>规律要经质疑；<strong>落到具体、有时限的承诺</strong></td></tr></tbody></table>
+<p><strong>通用复盘四问（flux.am / AAR）</strong>：</p>
+<ol><li>What did we expect?（预期）</li><li>What happened?（事实）</li><li>Why the difference?（差异原因）</li><li>What will we sustain/improve?（持续或改进）</li></ol>
+<p><strong>复盘设计原则（务必遵守）</strong></p>
+<ul><li><strong>心理安全</strong>：明确"无评判区"，人人都用了当时最优信息做决定。</li><li><strong>Ask before tell</strong>：先放大参与者自己的洞察，再给理论；学习才粘得住。</li><li><strong>证据锚定</strong>：用抉择记录、能力变化、行为标签等"证据物"避免空泛。</li><li><strong>命名行为，不命名人</strong>：谈"这种行为在真实工作中会怎样"，不评判人。</li><li><strong>以承诺收尾</strong>：每次复盘结束要有"具体、有时限的下一步行动"；无承诺的复盘=无改变。</li><li><strong>对成功也要复盘</strong>：只复盘失败=只学避损；复盘成功=可复制的洞察。</li><li><strong>时长参考</strong>：工作坊中复盘≈场景时长；微场景更短， cohorts 可加深。</li></ul>
+<blockquote>平台映射：Reflection 阶段 = 把 AAR 四步结构化成离线包里的"复盘手册"； Facilitator Console 导出"各组抉择轨迹 + 能力雷达"作为复盘证据物。</blockquote>
+<hr>
+<h2>7. 运营与迭代</h2>
+<ul><li><strong>试讲 → 学员共迭代</strong>：试课阶段邀请学员参与优化选题、互动、奖励规则（某管理沙盘课：1 期试讲 + 2 期落地，满意度 98.4%）。</li><li><strong>知识卡片库沉淀</strong>：把多门课的理论点沉淀为可复用卡片库，跨剧情框架灵活替换（六顶思考帽/冲突解决/国学领导智慧都能塞进同一剧情）。</li><li><strong>模块化替换</strong>：按客户成熟度侧重不同工具（初级管理者要流程方法，资深要思维突破）。</li><li><strong>效果证据</strong>：剧本杀培训被验证能提升参与度与知识转化；某物流复盘课业绩增长 45%，某 AI 赋能课培训效率提升 300%、新人上岗周期缩至 7 天。</li></ul>
+<hr>
+<h2>8. 本平台如何"碾压"剧本杀赛道</h2>
+<table><thead><tr><th>维度</th><th>手工剧本杀</th><th>本平台（AVG Course Builder）</th></tr></thead><tbody><tr><td>单门课生产周期</td><td>1–3 个月</td><td>小时级（AI 完成 80%）</td></tr><tr><td>成本结构</td><td>¥5K–50K/套 + 现场 DM</td><td>订阅摊薄 / 按产出计费</td></tr><tr><td>多人分组同屏</td><td>难（常单组或轮流）</td><td>1 讲师带 6 组，信息互补汇合</td></tr><tr><td>数据回流</td><td>无</td><td>抉择轨迹 + 能力雷达（复盘证据）</td></tr><tr><td>规模化复制</td><td>每门重做</td><td>模板复制 + DIY</td></tr><tr><td>质量一致性</td><td>依赖个别编剧</td><td>Validator 门禁保底</td></tr></tbody></table>
+<hr>
+<h2>9. 真实案例速查（详见 case_library.md）</h2>
+<ul><li><strong>金融合规</strong>：邮储《阳光之下》、农行《清风廉影》廉洁/反诈剧本杀</li><li><strong>红色/党建</strong>：兴业《大岭山之歌》、工行《铁路大厂》</li><li><strong>新员工</strong>：《星际启航》1 天交付职业素养蜕变（能力雷达图 + 721 法则 + 霍兰德）</li><li><strong>问题解决</strong>：《列车藏宝》问题分析与解决（累计授课 80+ 期）</li><li><strong>管理</strong>：《职场局中局》管理者技能（120+ 期）、《冰川之下》目标计划</li><li><strong>服务营销</strong>：《陆拾公园迷案》服务营销技能提升</li></ul>
+<h2 id='sec_3'>03 · 案例库</h2>
+<h1>案例库：优秀 AVG 游戏 + 真实剧本杀培训产品</h1>
+<blockquote>用途：设计决策需要佐证时，从这里取真实案例。分两表。</blockquote>
+<hr>
+<h2>一、优秀 AVG / 冒险游戏（可借鉴机制）</h2>
+<table><thead><tr><th>游戏</th><th>类型</th><th>最值得借鉴的机制</th><th>对本平台的启发</th></tr></thead><tbody><tr><td><em>Zero Escape</em> (999 / VLR / ZTD)</td><td>悬疑 AVG</td><td>内置流程图作为叙事建筑 + 情感载体；信息锁；多时间线交汇</td><td>Exploration 的"路线地图"应兼具导航与情绪传递</td></tr><tr><td><em>Danganronpa</em> 1/2</td><td>高速谜题 AVG</td><td>学级裁判：Nonstop Debate / 真相子弹 / Closing Argument / 影响值 HP</td><td>Challenge/Decision 的"证据击穿谎言" + 小组辩论</td></tr><tr><td><em>Ace Attorney</em></td><td>法庭推理</td><td>交叉讯问、单一关键矛盾、证据对位</td><td>Challenge 的取证-推理闭环</td></tr><tr><td><em>Detroit: Become Human</em></td><td>电影互动</td><td>三主角线汇合；Software Instability × Hank 信任咬合计量；Public Opinion 血条；QTE</td><td>Consequence/Growth 的计量系统；多视角分组；限时压力</td></tr><tr><td><em>Disco Elysium</em></td><td>CRPG/AVG</td><td>内部声音、技能即人格、调查即叙事</td><td>把"能力"人格化为可对话的声音（活体 NPC 思路）</td></tr><tr><td><em>Along the Edge</em></td><td>视觉小说</td><td>60+ 结局；选择贯穿始终改变外貌/性格；拒绝善/恶二元</td><td>Ending 的平行多结局；Decision 的价值观抉择</td></tr><tr><td><em>The Hundred Line</em></td><td>AVG+SRPG</td><td>100 endings；流程图驱动 what-if；路线重塑角色</td><td>Ending 的规模化管理；分支的策略感</td></tr><tr><td><em>Far Away</em></td><td>分支犯罪 AVG</td><td>9 主线 / 16 结局 / 300+ 抉择；视角 + 累积线索</td><td>Exploration 的多视角信息差</td></tr><tr><td><em>Reigns</em></td><td>极简决策</td><td>左右滑动权衡，四项计量失衡即死</td><td>Decision 的"资源权衡"极简表达</td></tr><tr><td><em>80 Days</em> / <em>Lifeline</em></td><td>互动小说</td><td>实时推进、文本驱动的紧迫感</td><td>限时/实时压力的氛围营造</td></tr></tbody></table>
+<hr>
+<h2>二、真实剧本杀培训产品（相邻竞品 / 对标）</h2>
+<table><thead><tr><th>产品</th><th>机构/讲师</th><th>主题</th><th>周期/形式</th><th>可借鉴点</th></tr></thead><tbody><tr><td>《阳光之下》</td><td>邮储银行</td><td>廉洁/反腐剧本杀</td><td>定制盒装</td><td>金融合规情景化</td></tr><tr><td>《清风廉影》</td><td>农行</td><td>廉洁剧本杀</td><td>定制</td><td>合规 + 角色扮演</td></tr><tr><td>《大岭山之歌》</td><td>兴业银行</td><td>红色剧本杀</td><td>定制</td><td>红色教育沉浸化</td></tr><tr><td>《铁路大厂》</td><td>工行</td><td>党建剧本杀</td><td>定制</td><td>党建 + 情景</td></tr><tr><td>《星际启航》</td><td>吴婷</td><td>新员工职业素养（00 后）</td><td>1 天/6h，6 角色</td><td>能力雷达图 + 721 法则 + 霍兰德；高效交付</td></tr><tr><td>《列车藏宝》</td><td>吴婷/周良</td><td>问题分析与解决</td><td>累计 80+ 期</td><td>问题解决结构化</td></tr><tr><td>《职场局中局》</td><td>周良</td><td>管理者技能修炼</td><td>累计 120+ 期</td><td>管理沙盘 + 复盘</td></tr><tr><td>《冰川之下》</td><td>吴婷</td><td>目标计划与达成</td><td>剧本杀</td><td>目标管理情景化</td></tr><tr><td>《陆拾公园迷案》</td><td>吴婷</td><td>服务营销技能提升</td><td>剧本杀</td><td>服务场景演练</td></tr><tr><td>《这个杀手有点冷》</td><td>泊明</td><td>职业心态/管理认知</td><td>剧本杀</td><td>娱乐化营销方法论</td></tr><tr><td>《新龙门镖局》</td><td>泊明</td><td>文旅营销/创新思维</td><td>剧场式</td><td>剧组式团队管理</td></tr><tr><td>领导力剧本杀（线上版）</td><td>樊/何/海涛</td><td>领导力竞聘</td><td>一幕深度/五幕</td><td>教练式提问、知识卡片库、意外卡、AI 思考伙伴</td></tr></tbody></table>
+<p><strong>定价锚（市场参考）</strong></p>
+<ul><li>盒装剧本杀：¥300–800/套</li><li>企业定制剧本杀：¥5,000–50,000/套 + 现场 DM</li><li>单门课生产周期：1–3 个月</li><li>剧本杀课程研发导师业务数据：原创剧本杀课 9 门、培训学员 2w+、好评率 98%</li></ul>
+<p><strong>剧本杀培训被验证的效果</strong></p>
+<ul><li>某管理沙盘课：1 期试讲 + 2 期落地，满意度 98.4%</li><li>某物流复盘课：业绩增长 45%</li><li>某 AI 赋能课：培训效率提升 300%、新人上岗周期缩至 7 天、核心人才流失降 28%</li></ul>
+<hr>
+<h2>三、跨案例的设计启示（提炼）</h2>
+<ol><li><strong>角色认同是入口</strong>：用剧中名互称、给清晰角色目标 → 学员"履职"而非"听课"。</li><li><strong>复盘决定培训还是团建</strong>：所有成功案例都把"结构化复盘 + 可带走产出"作为收尾。</li><li><strong>知识卡片化</strong>：理论点从"灌输"变"按现场表现抽取的卡片"，保持沉浸。</li><li><strong>教练式提问 &gt; 讲授</strong>："为什么？"深挖决策背后的假设，是领导力课程高满意度的核心。</li><li><strong>AI 是思考伙伴不是答案机</strong>：把"AI 生成草案→小组讨论修订→可带走的方案"设计为固定环节，解决转化难题。</li><li><strong>模块化+快速替换</strong>：同一剧情框架可塞入不同理论体系（六顶思考帽/冲突解决/国学），按客户替换。</li></ol>
+<h2 id='sec_4'>04 · 设计期检查清单</h2>
+<h1>设计期检查清单（可调用）</h1>
+<blockquote>用途：设计/评审「课程 → AVG」转换产物时逐条核对。按平台设计工作区与通用门禁组织。 与 PRD 的 Validation 门禁、AVG Project JSON Schema 配合使用。</blockquote>
+<hr>
+<h2>一、按设计阶段（Pipeline）的检查清单</h2>
+<h3>Challenge（挑战）</h3>
+<ul><li>[ ] 知识点是否被包装成"需要取证/推理才能解开"的情境，而非直接讲授？</li><li>[ ] 是否有明确"矛盾点/谜题"，且难度适中（非一眼看穿、非无解）？</li><li>[ ] 线索是否来自 Exploration 阶段（线索卡 → 可推理）？</li><li>[ ] 是否给出"真相子弹"且数量有限（制造取舍/压力）？</li></ul>
+<h3>Exploration（探索）</h3>
+<ul><li>[ ] 是否有多视角/多组信息差（每组探索不同线索，汇合互补）？</li><li>[ ] 角色（NPC）是否有记忆/动机/能动性三支柱，会因学员行为改变态度？</li><li>[ ] 全局 flag 是否控制在 3–7 个？状态是否产生可见后果？</li><li>[ ] 探索路径是否有"自然汇合点"（瓶颈），避免组合爆炸？</li></ul>
+<h3>Decision（抉择）—— 红线：必须是真实取舍</h3>
+<ul><li>[ ] 是否 ≥2 个合理且各有 Trade-off 的选项（两难，而非对错题）？</li><li>[ ] 是否避免了"明显正确的考试题"？</li><li>[ ] 抉择是否从戏剧时刻<strong>自然涌现</strong>，而非打断叙事？</li><li>[ ] 是否避免了"假选择"（若选择无关紧要，要么删掉，要么改为表达型）？</li><li>[ ] 抉择频率是否变化（有呼吸），非恒定决策密度？</li></ul>
+<h3>Consequence / Growth（后果与成长）</h3>
+<ul><li>[ ] 选择是否导致可见的能力/关系值变化？</li><li>[ ] 计量是否"可见且有意义"，阈值是否开门（解锁场景/结局/能力）？</li><li>[ ] 多个计量是否可能"相互咬合"制造张力（无法既要又要）？</li><li>[ ] 是否允许"非最优"选择也产生独特内容（避免完美唯一解）？</li></ul>
+<h3>Ending（结局）—— 红线：平行价值结局</h3>
+<ul><li>[ ] 是否生成多个<strong>平行</strong>结局（如最佳履约/妥协/失控），而非单一"通关"？</li><li>[ ] 是否规避"真结局问题"（一个真结局使其他路径无效）？</li><li>[ ] 每个结局是否"配得上"通往它的路径、提供闭环？</li><li>[ ] 不同结局是否对应不同的<strong>能力雷达</strong>（可量化复盘）？</li></ul>
+<h3>Reflection（复盘）—— 红线：结构化复盘 + 可带走产出</h3>
+<ul><li>[ ] 是否内置 AAR 四步（目标→事件→差异→行动）或等效结构？</li><li>[ ] 是否保证"心理安全 / Ask-before-tell / 证据锚定 / 命名行为不命名人"？</li><li>[ ] 是否以"具体、有时限的承诺"收尾？</li><li>[ ] 是否对成功也复盘（不只失败）？</li><li>[ ] 离线包是否内嵌<strong>可带走的成果模板</strong>（能力雷达图/行动计划/共识制度）？</li></ul>
+<hr>
+<h2>二、线下产品包（离线包）完整性清单</h2>
+<ul><li>[ ] 剧本本（主线 + 分支逻辑清晰）</li><li>[ ] 角色卡（每组/每人：目标、秘密、背景、工作内容）</li><li>[ ] 线索卡 / 物证（与 Exploration 对应，可被推理使用）</li><li>[ ] 道具 / 物料清单（实体信物、计时沙漏、投票贴…）</li><li>[ ] <strong>DM 手册</strong>：控场流程、时间线、分支指引、追问话术、意外卡</li><li>[ ] <strong>复盘手册 / 知识卡片库</strong>：复盘引导 + 理论点 + 抽取规则</li><li>[ ] 计分 / 投票工具（抉择记录、小组对比）</li><li>[ ] <strong>产出物模板</strong>（能力雷达图、行动计划、共识制度）</li><li>[ ] 多人运行设计：1 讲师带 6 组的同步节点、汇合节点、信息互补机制</li></ul>
+<hr>
+<h2>三、通用质量门禁（参考 PRD Validation）</h2>
+<ul><li>[ ] <strong>抉择质量</strong>：所有 Decision 节点均通过"两难 vs 假选择"审查</li><li>[ ] <strong>分支健康</strong>：无组合爆炸；状态变量 ≤7 全局 flag；无死锁分支</li><li>[ ] <strong>学习深度</strong>：存在"探索→决策→后果→复盘"完整闭环（非纯观看）</li><li>[ ] <strong>角色代入</strong>：角色有清晰目标与秘密，能"履职"而非"听课"</li><li>[ ] <strong>复盘强度</strong>：有结构化复盘 + 可带走产出（否则只是娱乐）</li><li>[ ] <strong>线下可运营</strong>：离线包组件齐全，DM 手册可让非原作者带场</li><li>[ ] <strong>一致性</strong>：同一课程的四模块（设计阶段/JSON/预览/离线包）表达一致</li></ul>
+<hr>
+<h2>四、调用示例（给 AI Agent 的提示范式）</h2>
+<blockquote>当设计某一阶段时，先读取本 Skill 对应 references，再结合课程内容与 PRD Schema 产出； 产出后用上述清单逐条 self-check，未过门禁则迭代。</blockquote>
+<ul><li>设计 Decision → 读 <code>avg_mechanics_library.md</code> 的 B/C/D + 本清单"Decision 红线"</li><li>设计离线包 → 读 <code>jubensha_playbook.md</code> 第 2/4/6 节 + 本清单"线下产品包完整性"</li><li>需要佐证 → 读 <code>case_library.md</code> 取真实案例</li><li>终检 → 本清单"通用质量门禁"</li></ul>
+<h2 id='sec_5'>05 · 自动校验规则（Validation Gates）</h2>
+<h1>自动校验规则（Validation Gates，机器可读）</h1>
+<blockquote>用途：把《设计期检查清单》落成<strong>可机读的自动校验规则</strong>，作为 PRD 第 11 节 Validation 门禁的执行标准。</blockquote>
+<blockquote>由 <strong>Validator Agent（Pipeline 的质检环节）</strong> 在每阶段后 / 导出前消费：逐条对 AVG Project JSON 求值， <code>BLOCKER</code> 未过 → 阻断发布并打回重生成；<code>WARN</code> → 提示设计师；<code>INFO</code> → 人工复核。</blockquote>
+<blockquote>机器可读版本见 <code>validation_rules.json</code>（与本文同源于 <code>gen_validation.py</code>）。</blockquote>
+<hr>
+<h2>一、规则总表（按阶段）</h2>
+<h3>挑战</h3>
+<table><thead><tr><th>规则ID</th><th>检查对象 / JSON 路径</th><th>自动条件（伪代码）</th><th>严重度</th><th>失败信息</th><th>执行</th></tr></thead><tbody><tr><td><code>VR-CH01</code></td><td><code>stages.challenge / coursePackage.objectives / learningGameplayMap.mappings</code></td><td>len(stages.challenge)&gt;=1 且 每个 objective 在 mappings 中被 mechanic∈{challenge,exploration,decision} 覆盖</td><td><strong>BLOCKER</strong></td><td>存在未被真实挑战覆盖的学习目标</td><td>自动</td></tr><tr><td><code>VR-CH02</code></td><td><code>stages.challenge[].clueSource</code></td><td>每个 challenge 含 clueSource 字段且指向 exploration 线索</td><td><strong>WARN</strong></td><td>挑战缺少可推理的线索来源（沦为直接讲授）</td><td>自动</td></tr><tr><td><code>VR-CH03</code></td><td><code>stages.challenge[].difficulty</code></td><td>每个 challenge 标注 difficulty∈{low,mid,high} 且非全部 high</td><td><strong>WARN</strong></td><td>挑战难度未标注或整体过高（无渐进）</td><td>自动</td></tr></tbody></table>
+<h3>探索</h3>
+<table><thead><tr><th>规则ID</th><th>检查对象 / JSON 路径</th><th>自动条件（伪代码）</th><th>严重度</th><th>失败信息</th><th>执行</th></tr></thead><tbody><tr><td><code>VR-EX01</code></td><td><code>kit.cards.statusVars</code></td><td>len(kit.cards.statusVars) &lt;= 7</td><td><strong>BLOCKER</strong></td><td>全局状态变量(flag)超过 7 个，存在组合爆炸风险</td><td>自动</td></tr><tr><td><code>VR-EX02</code></td><td><code>multiplayerDesign.groupExploration / infoDistributionRules</code></td><td>len(groupExploration)&gt;=2 且各组 infoDistributionRules 互不相同</td><td><strong>WARN</strong></td><td>缺少多视角/信息差（各组探索内容雷同）</td><td>自动</td></tr><tr><td><code>VR-EX03</code></td><td><code>multiplayerDesign.finalConvergenceNode</code></td><td>finalConvergenceNode 非空</td><td><strong>WARN</strong></td><td>缺少自然汇合点（瓶颈），分支可能组合爆炸</td><td>自动</td></tr><tr><td><code>VR-EX04</code></td><td><code>stages.npcs[]</code></td><td>每个 npc 含 memory/motivation/agency 三字段且非空</td><td><strong>WARN</strong></td><td>NPC 缺记忆/动机/能动性三支柱（非活体）</td><td>自动</td></tr></tbody></table>
+<h3>抉择</h3>
+<table><thead><tr><th>规则ID</th><th>检查对象 / JSON 路径</th><th>自动条件（伪代码）</th><th>严重度</th><th>失败信息</th><th>执行</th></tr></thead><tbody><tr><td><code>VR-DE01</code></td><td><code>stages.decisions[].options</code></td><td>每个 decision 的 options 长度 &gt;= 2</td><td><strong>BLOCKER</strong></td><td>存在仅 1 个选项的『假抉择』</td><td>自动</td></tr><tr><td><code>VR-DE02</code></td><td><code>stages.decisions[].options[].tradeoff</code></td><td>每个 option.tradeoff 非空 且 非『明显正确』</td><td><strong>BLOCKER</strong></td><td>选项缺少真实 trade-off（疑似对错题）</td><td>自动</td></tr><tr><td><code>VR-DE03</code></td><td><code>stages.decisions[].options[].leadsTo / consequence</code></td><td>同一 decision 下不同 option 的 consequence/leadsTo 互不相同</td><td><strong>BLOCKER</strong></td><td>不同选择导致相同后果（illusion of choice）</td><td>自动</td></tr><tr><td><code>VR-DE04</code></td><td><code>stages.decisions（跨节点间距）</code></td><td>决策平均间隔 ∈ [3,8] 节点 且 有变化（非恒定密度）</td><td><strong>WARN</strong></td><td>抉择密度恒定/过密，缺少呼吸</td><td>自动</td></tr><tr><td><code>VR-DE05</code></td><td><code>（人工）</code></td><td>抉择从戏剧时刻自然涌现，未打断叙事</td><td><strong>INFO</strong></td><td>需人工确认抉择并非生硬插入</td><td>人工</td></tr></tbody></table>
+<h3>后果</h3>
+<table><thead><tr><th>规则ID</th><th>检查对象 / JSON 路径</th><th>自动条件（伪代码）</th><th>严重度</th><th>失败信息</th><th>执行</th></tr></thead><tbody><tr><td><code>VR-CO01</code></td><td><code>stages.decisions[].options[].consequence</code></td><td>每个 option.consequence 至少改变 1 个 statusVar 或 ability</td><td><strong>BLOCKER</strong></td><td>选择未产生可见能力/关系变化</td><td>自动</td></tr><tr><td><code>VR-CO02</code></td><td><code>stages.consequences[].threshold</code></td><td>存在阈值门槛：某 statusVar/ability 达阈值解锁场景/结局/能力</td><td><strong>WARN</strong></td><td>缺少阈值开门机制（计量无意义）</td><td>自动</td></tr><tr><td><code>VR-CO03</code></td><td><code>stages.endings / reflection（非最优路径）</code></td><td>非最高 ability 的路径也对应 unique content（结局/复盘）</td><td><strong>WARN</strong></td><td>存在唯一完美解，非最优路径无内容</td><td>自动</td></tr></tbody></table>
+<h3>成长</h3>
+<table><thead><tr><th>规则ID</th><th>检查对象 / JSON 路径</th><th>自动条件（伪代码）</th><th>严重度</th><th>失败信息</th><th>执行</th></tr></thead><tbody><tr><td><code>VR-GR01</code></td><td><code>stages.growth.abilityRadar</code></td><td>stages.growth 含 abilityRadar 定义（用于复盘量化）</td><td><strong>WARN</strong></td><td>成长缺少可量化能力雷达</td><td>自动</td></tr></tbody></table>
+<h3>结局</h3>
+<table><thead><tr><th>规则ID</th><th>检查对象 / JSON 路径</th><th>自动条件（伪代码）</th><th>严重度</th><th>失败信息</th><th>执行</th></tr></thead><tbody><tr><td><code>VR-EN01</code></td><td><code>stages.endings</code></td><td>len(stages.endings) &gt;= 2</td><td><strong>BLOCKER</strong></td><td>仅单一『通关』结局，缺少平行价值结局</td><td>自动</td></tr><tr><td><code>VR-EN02</code></td><td><code>（人工）</code></td><td>结局间无『真/假』排行，每个结局配得上其路径</td><td><strong>WARN</strong></td><td>疑似存在唯一真结局，弱化其他路径</td><td>人工</td></tr><tr><td><code>VR-EN03</code></td><td><code>stages.endings[].abilityRadar</code></td><td>每个 ending 含 abilityRadar 且彼此不同</td><td><strong>WARN</strong></td><td>不同结局未对应不同能力雷达（复盘不可区分）</td><td>自动</td></tr><tr><td><code>VR-EN04</code></td><td><code>（人工）</code></td><td>每个 ending 提供闭环（呼应开头目标/秘密）</td><td><strong>INFO</strong></td><td>需人工确认结局闭环</td><td>人工</td></tr></tbody></table>
+<h3>复盘</h3>
+<table><thead><tr><th>规则ID</th><th>检查对象 / JSON 路径</th><th>自动条件（伪代码）</th><th>严重度</th><th>失败信息</th><th>执行</th></tr></thead><tbody><tr><td><code>VR-RE01</code></td><td><code>stages.reflection[].aarSteps</code></td><td>aarSteps 四步齐全：goal/event/gap/action</td><td><strong>BLOCKER</strong></td><td>复盘缺少 AAR 结构化四步</td><td>自动</td></tr><tr><td><code>VR-RE04</code></td><td><code>kit.takeawayTemplates</code></td><td>kit 含 takeawayTemplates（abilityRadar / actionPlan / consensus 至少其一）</td><td><strong>BLOCKER</strong></td><td>离线包未内嵌可带走的成果模板</td><td>自动</td></tr><tr><td><code>VR-RE02</code></td><td><code>stages.reflection[].principles</code></td><td>含心理安全原则标记：askBeforeTell / evidenceAnchored / nameBehaviorNotPerson</td><td><strong>WARN</strong></td><td>复盘未贯彻心理安全原则</td><td>自动</td></tr><tr><td><code>VR-RE03</code></td><td><code>stages.reflection[].commitment</code></td><td>以具体、有时限的承诺收尾（commitment 字段非空）</td><td><strong>WARN</strong></td><td>复盘未落到具体行动承诺</td><td>自动</td></tr></tbody></table>
+<h3>离线包</h3>
+<table><thead><tr><th>规则ID</th><th>检查对象 / JSON 路径</th><th>自动条件（伪代码）</th><th>严重度</th><th>失败信息</th><th>执行</th></tr></thead><tbody><tr><td><code>VR-OFF01</code></td><td><code>kit.script</code></td><td>kit.script 非空</td><td><strong>BLOCKER</strong></td><td>脚本/剧本为空</td><td>自动</td></tr><tr><td><code>VR-OFF02</code></td><td><code>kit.cards</code></td><td>kit.cards 含 infoCards / npcCards / decisionCards / taskCards / statusVars 全部非空</td><td><strong>BLOCKER</strong></td><td>离线包卡片组件不全</td><td>自动</td></tr><tr><td><code>VR-OFF03</code></td><td><code>kit.roleTracks</code></td><td>5 &lt;= len(kit.roleTracks) &lt;= 6</td><td><strong>BLOCKER</strong></td><td>角色分轨非 5–6 组</td><td>自动</td></tr><tr><td><code>VR-OFF04</code></td><td><code>kit.facilitatorGuide</code></td><td>kit.facilitatorGuide 非空（DM 手册）</td><td><strong>BLOCKER</strong></td><td>缺引导师(DM)手册</td><td>自动</td></tr><tr><td><code>VR-OFF05</code></td><td><code>kit.reflection / materialList</code></td><td>kit 含复盘物料（reflection 字段或 materialList 含复盘手册/知识卡片）</td><td><strong>BLOCKER</strong></td><td>缺复盘手册/知识卡片</td><td>自动</td></tr><tr><td><code>VR-OFF06</code></td><td><code>multiplayerDesign.facilitatorPanel / syncNodes / finalConvergenceNode</code></td><td>三者均存在（保证 1 讲师带 6 组可行）</td><td><strong>BLOCKER</strong></td><td>多人运行设计缺失，1讲师无法带6组</td><td>自动</td></tr><tr><td><code>VR-OFF08</code></td><td><code>kit.export.format</code></td><td>format 含 'pdf'（至少印刷就绪）</td><td><strong>BLOCKER</strong></td><td>未产出可印刷格式</td><td>自动</td></tr><tr><td><code>VR-OFF07</code></td><td><code>kit.export.printSpec / materialList</code></td><td>两者非空（套用 offline_package_spec.md 规格）</td><td><strong>WARN</strong></td><td>缺少印刷规格/物料清单</td><td>自动</td></tr></tbody></table>
+<h3>通用</h3>
+<table><thead><tr><th>规则ID</th><th>检查对象 / JSON 路径</th><th>自动条件（伪代码）</th><th>严重度</th><th>失败信息</th><th>执行</th></tr></thead><tbody><tr><td><code>VR-GEN01</code></td><td><code>决策图可达性</code></td><td>每个 option.leadsTo 指向存在的节点；从起点可达所有 ending；无死锁分支</td><td><strong>BLOCKER</strong></td><td>存在死锁/不可达分支</td><td>自动</td></tr><tr><td><code>VR-GEN03</code></td><td><code>exploration/decision/consequence/reflection</code></td><td>四者均非空（探索→决策→后果→复盘 完整闭环）</td><td><strong>BLOCKER</strong></td><td>缺少完整学习闭环（纯观看）</td><td>自动</td></tr><tr><td><code>VR-GEN04</code></td><td><code>learningGameplayMap.mappings + coursePackage.objectives</code></td><td>每个 objective 在 mappings 中 coverage=='full'</td><td><strong>BLOCKER</strong></td><td>学习目标未被游戏行为充分覆盖</td><td>自动</td></tr><tr><td><code>VR-GEN05</code></td><td><code>multiplayerDesign</code></td><td>facilitatorPanel + syncNodes + groupExploration/infoDistributionRules 完整（1讲师可运行6组）</td><td><strong>BLOCKER</strong></td><td>一个讲师无法同时运行六组</td><td>自动</td></tr><tr><td><code>VR-GEN02</code></td><td><code>（启发式）</code></td><td>不存在唯一『最优攻略』直接破解（需权衡的多条路径存在）</td><td><strong>WARN</strong></td><td>疑似唯一最优解直接通关</td><td>自动</td></tr></tbody></table>
+<hr>
+<h2>二、扩展节点子 Schema（规则引用的字段，供工程实现一致）</h2>
+<blockquote>AVG Project JSON 主结构见 PRD 第 5 节；下方为规则直接引用的节点子结构，Validator 据此取值。</blockquote>
+<p>``<code>json { "DecisionNode": { "id": "", "prompt": "", "context": "", "options": [ { "id": "", "label": "", "tradeoff": "", "leadsTo": "", "consequence": "" } ] }, "EndingNode": { "id": "", "type": "best|compromise|collapse", "abilityRadar": {}, "closure": "" }, "ReflectionNode": { "aarSteps": { "goal": "", "event": "", "gap": "", "action": "" }, "principles": [ "askBeforeTell", "evidenceAnchored", "nameBehaviorNotPerson" ], "commitment": "", "takeawayTemplateRef": "" }, "NPCEntity": { "name": "", "memory": "", "motivation": "", "agency": "", "attitude": "" }, "TakeawayTemplate": { "kind": "abilityRadar|actionPlan|consensus", "fields": [] } } </code>``</p>
+<hr>
+<h2>三、校验执行说明（给 Validator Agent）</h2>
+<ol><li><strong>加载</strong>：读取当前 AVG Project JSON（统一数据模型）。</li><li><strong>求值</strong>：对每条 <code>auto==true</code> 的规则，按 <code>path</code> 取字段、按 <code>check</code> 判定；<code>auto==false</code> 的规则输出人工复核项。</li><li><strong>分级</strong>：收集 <code>BLOCKER</code> 失败 → 阻断 <code>meta.status</code> 进入 <code>published</code>，返回定位（ruleId + JSON path）给生成 Agent 重生成；<code>WARN</code> → 进 Quality Report；<code>INFO</code> → 人工确认清单。</li><li><strong>产物</strong>：输出 <code>kit.qualityReport</code>（AVG Quality Check + Prototype Test Report 合并），随离线包交付。</li><li><strong>门禁闭环</strong>：导出离线包（E6）前必须 <code>VR-OFF*</code> 全过；发布前必须全部 <code>BLOCKER</code> 全过。</li></ol>
+<blockquote>调用方式：开发某阶段时读本文件对应行，或让 Validator Agent 直接加载 <code>validation_rules.json</code>。</blockquote>
+<h2 id='sec_6'>06 · 线下产品包实体物料规格</h2>
+<h1>线下产品包 · 实体物料规格（Offline Package Spec）</h1>
+<blockquote>用途：固化「剧本杀 / AVG 线下产品包」各<strong>实体组件</strong>的纸张、卡牌尺寸、印刷工艺、出血规范与成本锚， 供 PRD 第九节「导出离线包（E6）」直接套用，确保产出物在专业印刷 / 桌游制作层面可达标。 本平台不直接印，只产出<strong>印刷就绪稿（print-ready PDF / InDesign）+ 物料清单</strong>，由乙方找印厂落地。 配合 <code>validation_rules.md</code> 的 VR-OFF07 / VR-OFF08 校验 <code>kit.export.printSpec</code> 与 <code>materialList</code>。</blockquote>
+<hr>
+<h2>一、组件 → 物料规格映射表</h2>
+<table><thead><tr><th>组件（JSON 对应）</th><th>实体形态</th><th>尺寸</th><th>纸张 / 材质</th><th>工艺</th><th>份数（6 组 / 30–50 人）</th><th>备注</th></tr></thead><tbody><tr><td>剧本 / 脚本 <code>kit.script</code></td><td>剧本册（按分幕 / 分轨）</td><td>A5（148×210mm）</td><td>内页 80–100g 双胶 / 本白；封面 250g 铜版</td><td>骑马钉 / 胶装；封面覆哑膜</td><td>每组 1 本 + 讲师 1 本</td><td>主线 + 分支逻辑清晰</td></tr><tr><td>角色卡 <code>kit.roleTracks</code> / <code>npcCards</code></td><td>角色卡</td><td>90×54mm（大扑克）</td><td>300g 黑卡 / 铜版</td><td>双面印；可局部 UV / 烫名</td><td>每组每人 1 张</td><td>含目标 / 秘密 / 背景 / 工作内容</td></tr><tr><td>信息卡 <code>kit.cards.infoCards</code></td><td>信息卡</td><td>88×63mm</td><td>250–300g 哑粉</td><td>圆角</td><td>按线索数</td><td>玩家手里的事实</td></tr><tr><td>决策卡 <code>kit.cards.decisionCards</code></td><td>决策卡</td><td>90×54mm</td><td>300g 铜版</td><td>可写（留白区）</td><td>每抉择点 1 张 / 组</td><td>对应 Decision 节点</td></tr><tr><td>任务卡 <code>kit.cards.taskCards</code></td><td>任务卡</td><td>90×54mm</td><td>250g 哑粉</td><td>圆角</td><td>按任务数</td><td>阶段目标提示</td></tr><tr><td>线索 / 物证 <code>infoCards(线索)</code></td><td>线索卡 / 物证袋</td><td>88×63mm + 牛皮纸袋</td><td>250g 哑粉 + 牛皮纸 120g</td><td>模切 / 封口贴</td><td>按线索数</td><td>与 Exploration 对应，可被推理</td></tr><tr><td>状态变量表 <code>kit.cards.statusVars</code></td><td>计分 / 状态卡</td><td>A6 折页 / 148×105mm</td><td>200g 大地纸</td><td>可擦写（覆膜）</td><td>每组 1 份</td><td>全局 flag ≤ 7（VR-EX01）</td></tr><tr><td>NPC 卡 <code>kit.cards.npcCards</code></td><td>NPC 卡</td><td>85×54mm</td><td>300g 铜版</td><td>双面</td><td>每人 1 张</td><td>含记忆 / 动机 / 能动性（VR-EX04）</td></tr><tr><td>讲师控制面板 / 玩家界面 <code>facilitatorGuide</code> / <code>playerGuide</code></td><td>控制面板卡 + 玩家指引</td><td>A4 圈装 / 胶装</td><td>120–157g</td><td>覆膜</td><td>讲师 1 套</td><td>控场 / 参与说明</td></tr><tr><td>引导师（DM）手册 <code>kit.facilitatorGuide</code></td><td>DM 手册</td><td>A4 胶装 / 圈装</td><td>内页 100g 双胶；封面 250g 覆膜</td><td>含时间线 / 追问话术 / 意外卡</td><td>讲师 1 本</td><td>让非原作者也能带场（VR-OFF04）</td></tr><tr><td>复盘手册 / 知识卡片 <code>kit.reflection</code></td><td>复盘手册 + 知识卡片</td><td>A6 折页 / 卡片 74×105mm</td><td>200g 大地纸</td><td>圆角</td><td>每组 1 套 + 讲师</td><td>AAR 四步 + 理论点（VR-RE*）</td></tr><tr><td>产出物模板 <code>kit.takeawayTemplates</code></td><td>能力雷达图 / 行动计划 / 共识制度</td><td>A4 单张 / 折页</td><td>120g</td><td>可填写</td><td>每人 1 份</td><td>可带走的成果（VR-RE04）</td></tr><tr><td>多人运行设计 <code>kit.multiplayerDesign</code></td><td>公共时间线海报 + 同步节点卡</td><td>A1/A2 海报（157g 铜版）/ A5 卡</td><td>海报 + 卡</td><td>海报过胶</td><td>教室 1 套</td><td>1 讲师带 6 组（VR-OFF06）</td></tr><tr><td>道具 / 物料 <code>kit.export.materialList</code></td><td>实体信物 / 计时沙漏 / 投票贴等</td><td>按需</td><td>混合</td><td>—</td><td>按设计</td><td>由 materialList 列出</td></tr><tr><td>包装盒 <code>kit</code></td><td>收纳盒</td><td>≈220×160×60mm（按组件体积）</td><td>350g 白卡 覆膜</td><td>烫金 / 激凸 + 内衬 EVA / 瓦楞</td><td>每组 1 盒</td><td>统一 VI</td></tr></tbody></table>
+<hr>
+<h2>二、印刷工艺速查（Glossary）</h2>
+<ul><li><strong>覆膜</strong>：光膜（亮） / 哑膜（质感、防指纹）。封面、控制面板常用哑膜。</li><li><strong>局部 UV</strong>：在指定图案上涂 UV 光油，突出 logo / 关键卡面。</li><li><strong>烫金 / 烫银</strong>：金属箔热压，用于标题、角色名，提升质感。</li><li><strong>激凸（击凸）</strong>：压出浮雕触感，常用于盒面 logo。</li><li><strong>模切</strong>：异形裁切，用于物证袋口、特殊卡形。</li><li><strong>圆角</strong>：卡牌四角打磨，防卷边、手感好。</li><li><strong>装订</strong>：骑马钉（薄册）/ 胶装（厚册）/ 圈装·活页（DM 手册，可摊平书写）/ 蝴蝶装（高档）。</li><li><strong>专色 / 压纹</strong>：品牌色精确还原 / 纸面纹理。</li></ul>
+<hr>
+<h2>三、通用规范（导出服务必须遵守）</h2>
+<ul><li><strong>出血</strong>：四周各 <strong>3mm</strong>；裁切边外不留任何内容。</li><li><strong>安全边</strong>：关键文字 / 图案距裁切边 ≥ <strong>8mm</strong>。</li><li><strong>字号</strong>：正文 ≥ 9pt；小字（卡面备注）≥ 7pt；避免极小字在印刷后不可读。</li><li><strong>字体</strong>：中文建议 <strong>思源黑体 / 思源宋体 / 方正系列</strong>（注意商用授权）；嵌入字体或转曲。</li><li><strong>色彩</strong>：使用 <strong>CMYK</strong>；屏幕 RGB 色需转 CMYK 并核对，避免荧光色印不出。</li><li><strong>二维码 / 条码</strong>：四周留白 ≥ 4mm 安静区。</li><li><strong>拼版</strong>：导出 PDF 按 <strong>印刷拼版（imposition）</strong> 或提供单页 + 出血，方便印厂拼版。</li></ul>
+<hr>
+<h2>四、成本锚（单套物料，30–50 人 / 6 组估算）</h2>
+<table><thead><tr><th>档位</th><th>配置</th><th>单套物料成本（印厂）</th></tr></thead><tbody><tr><td>简装</td><td>哑膜卡牌 + 骑马钉剧本 + 圈装 DM 手册 + 牛皮纸盒</td><td>¥30–80</td></tr><tr><td>精装</td><td>局部 UV / 烫名角色卡 + 胶装剧本 + 烫金盒 + 可擦写状态卡</td><td>¥120–260</td></tr></tbody></table>
+<blockquote>对比：手工剧本杀定制 <strong>¥5,000–50,000 / 套 + 现场 DM</strong>，且 1–3 月生产、无数据回流。 本平台把「设计 → 印刷就绪稿」压缩到<strong>小时级</strong>，物料成本由乙方自行找印厂摊薄，平台只产出印刷稿 + 物料清单。</blockquote>
+<hr>
+<h2>五、离线包导出套用（E6 实现指引）</h2>
+<p>导出服务 <code>kit.export</code> 按以下映射把 JSON 字段 → 上述规格，并产出 <code>printSpec</code> + <code>materialList</code>：</p>
+<ol><li><code>kit.script</code> → 剧本册（A5，分轨分页）。</li><li><code>kit.roleTracks</code> + <code>kit.cards.npcCards</code> → 角色卡 / NPC 卡（90×54 / 85×54，300g）。</li><li><code>kit.cards.infoCards / decisionCards / taskCards / statusVars</code> → 对应卡牌（尺寸按上表）。</li><li><code>kit.facilitatorGuide</code> + <code>kit.playerGuide</code> → DM 手册 + 玩家指引（A4 圈装）。</li><li><code>kit.reflection</code> + <code>kit.takeawayTemplates</code> → 复盘手册 / 知识卡片 / 产出物模板。</li><li><code>kit.multiplayerDesign</code> → 时间线海报 + 同步节点卡。</li><li><code>kit.export.materialList</code> → 汇总所有实体物料（名称 / 尺寸 / 材质 / 工艺 / 数量）供印厂报价。</li><li><code>kit.export.printSpec</code> → 印刷规格说明（出血 / 安全边 / 色彩 / 字体 / 拼版要求）。</li></ol>
+<blockquote>校验：导出前触发 VR-OFF07（printSpec + materialList 非空）、VR-OFF08（format 含 pdf）； 全部 VR-OFF* 通过方可导出（见 <code>validation_rules.md</code>）。</blockquote>
+<hr>
+<h2>六、调用示例（给 AI Agent）</h2>
+<ul><li>设计离线包（E6）→ 读本节第一 / 五节，把 <code>kit</code> 各字段映射到物料规格。</li><li>产出印刷稿 → 套用第三节通用规范，避免印厂退稿。</li><li>估算成本 → 读第四节，给乙方一个物料成本区间。</li><li>终检 → 调用 <code>validation_rules.md</code> 的 VR-OFF* 规则。</li></ul>
+<div class='footer'>AVG Scenario Design Kit · 由 AVG Course Builder 研究生成 · 可随时调用 Skill: avg-scenario-design-kit</div>
+</div></body></html>

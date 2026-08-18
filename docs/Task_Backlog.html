@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>开发任务 Backlog · AVG Course Builder</title><style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system,'Microsoft YaHei',Segoe UI,sans-serif; color:#1f2937; margin:0; background:#fff; line-height:1.7; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 40px 32px 80px; }
+h1 { font-size: 28px; color:#111827; border-bottom:3px solid #d426d4; padding-bottom:12px; }
+h2 { font-size: 21px; color:#111827; margin-top:40px; border-left:4px solid #d426d4; padding-left:10px; }
+h3 { font-size: 17px; color:#374151; margin-top:26px; }
+.lead { background:#faf5ff; border:1px solid #f3e8ff; border-radius:10px; padding:14px 18px; color:#4b1d6b; }
+table { border-collapse: collapse; width:100%; margin:14px 0; font-size:13px; }
+.grid th, .grid td { border:1px solid #e5e7eb; padding:8px 10px; text-align:left; vertical-align:top; }
+.grid thead th { background:#f3e8ff; color:#4b1d6b; }
+.grid tr.tot td { background:#faf5ff; font-weight:700; }
+.matrix { font-size:11px; }
+.matrix th { background:#4b1d6b; color:#fff; padding:6px 4px; }
+.matrix th.corner { background:#2e1065; }
+.matrix th.dim { background:#f3e8ff; color:#4b1d6b; text-align:left; width:150px; }
+.matrix td.cell { text-align:center; border:1px solid #eee; position:relative; cursor:help; }
+.matrix .dot { display:inline-block; width:11px; height:11px; border-radius:50%; }
+.matrix .tip { display:none; position:absolute; left:50%; top:100%; transform:translateX(-50%); background:#111827; color:#fff; padding:6px 9px; width:200px; border-radius:6px; font-size:11px; z-index:10; }
+.matrix td.cell:hover .tip { display:block; }
+.legend { font-size:12px; color:#6b7280; margin-top:6px; }
+.legend .dot { display:inline-block; width:10px; height:10px; border-radius:50%; vertical-align:-1px; }
+.story { border:1px solid #eef2f7; border-radius:10px; padding:12px 16px; margin:12px 0; background:#fcfdff; }
+.sth { margin-bottom:4px; }
+.sid { font-weight:700; color:#4b1d6b; }
+.badge { font-size:11px; padding:1px 7px; border-radius:10px; color:#fff; }
+.badge.p0 { background:#dc2626; } .badge.p1 { background:#d97706; }
+.est { font-size:12px; color:#6b7280; }
+.us { margin:6px 0 8px; }
+ul.tasks { margin:6px 0; padding-left:20px; }
+ul.tasks li { margin:3px 0; }
+.ac { font-size:12px; color:#4b1d6b; background:#faf5ff; padding:6px 10px; border-radius:6px; margin-top:8px; }
+.quad { width:100%; max-width:680px; height:auto; margin:10px 0; border:1px solid #eef2f7; border-radius:10px; }
+</style></head><body><div class='wrap'><h1>AVG Course Builder · 开发任务 Backlog（V1）</h1>
+<p class='lead'>基于 PRD V1 Vertical Slice（《新任管理者团队管理》端到端跑通）拆解。<b>产品定位：把企业培训课程转换成可探索/决策/复盘/多人运行的 AVG 学习体验的 DIY 设计平台；最终产出线下产品包（实体教学材料+形式载体），由引导师在线下运营。</b>线上运营（实时多人SaaS/在线数据采集/LMS）不在 V1 范围。合计 <b>188</b> 人天，P0(必须) <b>151</b> / P1(增强) <b>37</b>。</p>
+<h2>一、里程碑路线（4 阶段 / 约 13 周）</h2>
+<table class='grid'><thead><tr><th>阶段</th><th>周期</th><th>主题</th><th>包含Epic</th><th>目标</th></tr></thead><tbody><tr><td><b>M1</b></td><td>W1–3</td><td>基座 · 解析 · 映射</td><td>E0, E1, E2</td><td>课程可导入并产出 Learning Gameplay Map（学习内容→游戏机制映射）</td></tr><tr><td><b>M2</b></td><td>W4–7</td><td>生成 · 编辑器</td><td>E3, E4</td><td>一键生成 9 阶段 AVG 设计草稿，并可在节点编辑器继续加工</td></tr><tr><td><b>M3</b></td><td>W8–10</td><td>预览 · 导出离线包（⭐红线）</td><td>E5, E6</td><td>作者可试玩验证设计；系统导出一套可印刷/可线下运营的完整 AVG 产品包</td></tr><tr><td><b>M4</b></td><td>W11–13</td><td>质量迭代 · 乙方DIY验收</td><td>E7, E8</td><td>设计期质量闭环；由真实乙方讲师 DIY 跑通《新任管理者》并验证速度/质量/成本</td></tr></tbody></table>
+<h2>二、Coding Agent 推荐开工顺序</h2>
+<p class='lead'>严格按依赖推进：<b>E0→E1→E2→E3→E4→E5→E6→E7→E8</b>。<b>E2（LGM 学习玩法映射）</b>与 <b>E6（线下包导出）</b> 是两大护城河/红线——前者决定‘课程能否变成好游戏’，后者决定‘能否产出可线下运营的完整产品包’（取代原‘线上多人运行’红线）。<b>E5 是设计期原型预览/试玩，不是部署产品。</b></p>
+<h2>三、Epic 与用户故事明细</h2>
+<h3>E0 · 平台基座（创作者工作台）</h3>
+<div class='story'><div class='sth'><span class='sid'>US0.1</span> <span class='badge p0'>P0</span> <span class='est'>8人天</span></div>
+<p class='us'>作为 <b>平台/工程</b>，我希望 <b>定义并落库统一数据模型（CoursePackage + 9阶段 + Kit导出结构）作为单一事实来源</b>，以便 <b>12 阶段产物与最终离线包可序列化、可回滚、跨模块流通</b>。</p>
+<ul class='tasks'><li>定义 v1 数据模型（course→capability→behavior→challenge→world→npc→exploration→decision→consequence→growth→ending→reflection→kit）</li><li>项目 CRUD + 版本管理（staging/preview/published）</li><li>校验与迁移脚本</li></ul>
+<div class='ac'><b>验收标准：</b>任一阶段产物可序列化；支持回滚到历史版本。</div></div>
+<div class='story'><div class='sth'><span class='sid'>US0.2</span> <span class='badge p0'>P0</span> <span class='est'>6人天</span></div>
+<p class='us'>作为 <b>管理员</b>，我希望 <b>创作者工作台与 RBAC（创作者/协作设计师/平台管理员）</b>，以便 <b>面向乙方讲师与甲方TD的 DIY 工作区，无‘在线学员’角色</b>。</p>
+<ul class='tasks'><li>角色模型（乙方讲师/甲方TD/协作设计师/管理员）</li><li>登录与工作区</li><li>权限矩阵</li></ul>
+<div class='ac'><b>验收标准：</b>角色权限生效；跨工作区数据隔离。</div></div>
+<div class='story'><div class='sth'><span class='sid'>US0.3</span> <span class='badge p1'>P1</span> <span class='est'>4人天</span></div>
+<p class='us'>作为 <b>创作者</b>，我希望 <b>素材与模板库（可复用美术/卡面/版式）</b>，以便 <b>占位美术+可替换，降低边际成本</b>。</p>
+<ul class='tasks'><li>占位美术+可替换接口</li><li>卡面/版式模板</li><li>物料图标库</li></ul>
+<div class='ac'><b>验收标准：</b>素材跨项目复用。</div></div>
+<h3>E1 · 课程解析 → Course Package</h3>
+<div class='story'><div class='sth'><span class='sid'>US1.1</span> <span class='badge p0'>P0</span> <span class='est'>10人天</span></div>
+<p class='us'>作为 <b>创作者</b>，我希望 <b>上传 PPT/PDF/Word/讲师手册，自动提取为 Course Package</b>，以便 <b>把‘读文档’自动化，是 DIY 起点</b>。</p>
+<ul class='tasks'><li>文档解析（pptx/pdf/docx→结构文本）</li><li>章节切分</li><li>知识点与学习目标抽取（LLM）</li><li>输出 CoursePackage（名称/客户/对象/时长/人数/目标/章节/知识点/案例/练习/工具/教学方式/预期行为改变）</li></ul>
+<div class='ac'><b>验收标准：</b>解析准确率≥85%；结构完整可进入映射。</div></div>
+<div class='story'><div class='sth'><span class='sid'>US1.2</span> <span class='badge p1'>P1</span> <span class='est'>5人天</span></div>
+<p class='us'>作为 <b>创作者</b>，我希望 <b>人工校正界面（大纲/知识点增删/目标标注）</b>，以便 <b>修正解析偏差，保证生成质量</b>。</p>
+<ul class='tasks'><li>课程大纲编辑</li><li>知识点增删</li><li>学习目标标注</li></ul>
+<div class='ac'><b>验收标准：</b>可修正并保存。</div></div>
+<h3>E2 · 学习玩法映射 LGM（⭐核心差异点）</h3>
+<div class='story'><div class='sth'><span class='sid'>US2.1</span> <span class='badge p0'>P0</span> <span class='est'>12人天</span></div>
+<p class='us'>作为 <b>创作者</b>，我希望 <b>自动生成 Learning Gameplay Map（学习目标↔游戏机制）</b>，以便 <b>把‘学习设计’翻译成‘游戏设计’，是课程变游戏的关键中间层</b>。</p>
+<ul class='tasks'><li>LGM Agent（连接学习目标与机制）</li><li>映射表（目标→机制→评估点）</li><li>难度曲线建议</li><li>Validator 覆盖率校验</li></ul>
+<div class='ac'><b>验收标准：</b>每个学习目标≥1机制对应；Validator 校验覆盖率100%。</div></div>
+<div class='story'><div class='sth'><span class='sid'>US2.2</span> <span class='badge p1'>P1</span> <span class='est'>6人天</span></div>
+<p class='us'>作为 <b>创作者</b>，我希望 <b>LGM 可视化与编辑（左目标/右机制看板）</b>，以便 <b>专家在 AI 建议上做创意与质量控制</b>。</p>
+<ul class='tasks'><li>映射看板</li><li>拖拽调整</li><li>复盘点标注</li></ul>
+<div class='ac'><b>验收标准：</b>可见并编辑映射。</div></div>
+<h3>E3 · 12 阶段生成 Pipeline + Validators（设计生产）</h3>
+<div class='story'><div class='sth'><span class='sid'>US3.1</span> <span class='badge p0'>P0</span> <span class='est'>20人天</span></div>
+<p class='us'>作为 <b>创作者</b>，我希望 <b>9 个限权 Agent 编排生成 9 阶段 AVG 设计草稿</b>，以便 <b>点‘生成’即得可玩设计初稿，AI 承担 80% 生产</b>。</p>
+<ul class='tasks'><li>实现 Capability/Behavior/Challenge/World/NPC/Exploration/Decision/Consequence/Growth/Ending/Reflection 等 Agent（基于规范 system prompt）</li><li>Pipeline 编排与上下文传递</li><li>限权与成本护栏</li></ul>
+<div class='ac'><b>验收标准：</b>输入 Course+映射→9阶段草稿；端到端《新任管理者》≤小时级。</div></div>
+<div class='story'><div class='sth'><span class='sid'>US3.2</span> <span class='badge p0'>P0</span> <span class='est'>8人天</span></div>
+<p class='us'>作为 <b>平台</b>，我希望 <b>Validator 质量门禁（Learning Validator / Runtime Validator 等，设计期校验）</b>，以便 <b>自动拦截不合规设计，保证学习有效性</b>。</p>
+<ul class='tasks'><li>校验规则：决策≥2合理选项且有trade-off / 探索有分支 / 复盘闭环 / 学习点覆盖 / 六组可运行 / 讲师可管理</li><li>不达标打回重生成</li><li>质量报告</li></ul>
+<div class='ac'><b>验收标准：</b>自动拦截不合规产物；生成质量报告。</div></div>
+<div class='story'><div class='sth'><span class='sid'>US3.3</span> <span class='badge p1'>P1</span> <span class='est'>3人天</span></div>
+<p class='us'>作为 <b>创作者</b>，我希望 <b>Pipeline 输出一键导入编辑器</b>，以便 <b>生成与编辑无缝衔接</b>。</p>
+<ul class='tasks'><li>草稿→编辑器工程转换</li><li>差异合并</li></ul>
+<div class='ac'><b>验收标准：</b>草稿可在编辑器打开。</div></div>
+<h3>E4 · AVG 编辑器（Kit Authoring）</h3>
+<div class='story'><div class='sth'><span class='sid'>US4.1</span> <span class='badge p0'>P0</span> <span class='est'>15人天</span></div>
+<p class='us'>作为 <b>创作者</b>，我希望 <b>节点画布（对话/分支/决策/结局）</b>，以便 <b>可视化加工生成草稿</b>。</p>
+<ul class='tasks'><li>画布（拖拽/连线/缩放）</li><li>≥200节点支持</li><li>实时保存</li></ul>
+<div class='ac'><b>验收标准：</b>支持≥200节点；实时保存。</div></div>
+<div class='story'><div class='sth'><span class='sid'>US4.2</span> <span class='badge p0'>P0</span> <span class='est'>12人天</span></div>
+<p class='us'>作为 <b>创作者</b>，我希望 <b>节点属性编辑器（对话/选项/条件/变量/结局 + 卡面绑定）</b>，以便 <b>完整描述一个场景与卡牌</b>。</p>
+<ul class='tasks'><li>对话/选项/条件/变量/结局编辑</li><li>角色立绘与卡面绑定</li><li>资产选择器</li></ul>
+<div class='ac'><b>验收标准：</b>可完整描述一个场景。</div></div>
+<div class='story'><div class='sth'><span class='sid'>US4.3</span> <span class='badge p1'>P1</span> <span class='est'>6人天</span></div>
+<p class='us'>作为 <b>创作者</b>，我希望 <b>编辑器内实时预览</b>，以便 <b>编辑即所见</b>。</p>
+<ul class='tasks'><li>内嵌轻量预览</li><li>从任意节点起看</li></ul>
+<div class='ac'><b>验收标准：</b>编辑即所见。</div></div>
+<h3>E5 · 设计期原型预览 / Playtest（作者试玩验证，非线上产品）</h3>
+<div class='story'><div class='sth'><span class='sid'>US5.1</span> <span class='badge p0'>P0</span> <span class='est'>12人天</span></div>
+<p class='us'>作为 <b>创作者</b>，我希望 <b>浏览器原型预览：作者试玩设计以验证可玩性</b>，以便 <b>在导出离线包前先‘跑一遍’，确认体验成立（这就是全景图的 Prototype）</b>。</p>
+<ul class='tasks'><li>对话/决策/状态/结局渲染（仅供作者验证，非部署产品）</li><li>桌面+移动适配</li><li>存档试玩进度</li></ul>
+<div class='ac'><b>验收标准：</b>作者可试玩验证设计；可分享给协作者试玩。</div></div>
+<div class='story'><div class='sth'><span class='sid'>US5.2</span> <span class='badge p0'>P0</span> <span class='est'>8人天</span></div>
+<p class='us'>作为 <b>平台</b>，我希望 <b>Playtest 机制 + AI 分析问题（Game Tester 自动试玩）</b>，以便 <b>系统自己发现游戏问题，给出修改清单</b>。</p>
+<ul class='tasks'><li>Game Tester 自动试玩</li><li>AI 分析（探索/选择/后果/信息不对称/失败有意义/卡死/破解攻略）</li><li>问题清单与定位</li></ul>
+<div class='ac'><b>验收标准：</b>输出 AVG Prototype Test Report。</div></div>
+<h3>E6 · 线下交付物生成与导出（⭐红线：真正产出物）</h3>
+<div class='story'><div class='sth'><span class='sid'>US6.1</span> <span class='badge p0'>P0</span> <span class='est'>14人天</span></div>
+<p class='us'>作为 <b>创作者</b>，我希望 <b>自动生成离线包全部组件（覆盖全景图清单）</b>，以便 <b>系统产出‘可运行、可测试、可修改、可导出’的 AVG 课程原型全部物料</b>。</p>
+<ul class='tasks'><li>组件生成：信息卡/NPC卡/决策卡/状态变量/任务/结局/讲师控制台/玩家界面说明</li><li>多人运行设计：公共事件时间线/各组状态/各组探索记录/信息发放规则/NPC使用规则/讲师控制面板/全班同步节点/最终汇合节点</li><li>角色分轨（5–6组不同剧本/角色）与分组设计</li></ul>
+<div class='ac'><b>验收标准：</b>一套完整组件覆盖全景图所列清单；含讲师控制面板+全班同步节点+最终汇合节点。</div></div>
+<div class='story'><div class='sth'><span class='sid'>US6.2</span> <span class='badge p0'>P0</span> <span class='est'>12人天</span></div>
+<p class='us'>作为 <b>创作者</b>，我希望 <b>导出为可印刷/拼版格式（PDF / Word / InDesign + 物料清单与印刷规格）</b>，以便 <b>直接送印或打印即成线下产品包，与竞品形式载体一致</b>。</p>
+<ul class='tasks'><li>导出管线（PDF拼版/Word/InDesign）</li><li>物料清单与印刷规格</li><li>卡面自动排版</li></ul>
+<div class='ac'><b>验收标准：</b>导出一套可送印/可直接打印的离线包。</div></div>
+<div class='story'><div class='sth'><span class='sid'>US6.3</span> <span class='badge p1'>P1</span> <span class='est'>3人天</span></div>
+<p class='us'>作为 <b>创作者</b>，我希望 <b>测试报告随包交付（AVG Quality Check + Test Report）</b>，以便 <b>离线包自带质量背书</b>。</p>
+<ul class='tasks'><li>质量报告生成</li><li>随导出打包</li></ul>
+<div class='ac'><b>验收标准：</b>报告随包导出。</div></div>
+<h3>E7 · 设计质量评估与迭代闭环（设计期，无线上数据）</h3>
+<div class='story'><div class='sth'><span class='sid'>US7.1</span> <span class='badge p1'>P1</span> <span class='est'>6人天</span></div>
+<p class='us'>作为 <b>创作者</b>，我希望 <b>修改迭代闭环（playtest→AI分析→修改→rebuild→再测）</b>，以便 <b>把‘玩过’变成‘学懂了的设计’，多轮打磨至通过全部 validators</b>。</p>
+<ul class='tasks'><li>问题→修改映射</li><li>一键 rebuild</li><li>回归校验</li></ul>
+<div class='ac'><b>验收标准：</b>支持多轮迭代至通过全部 validators。</div></div>
+<div class='story'><div class='sth'><span class='sid'>US7.2</span> <span class='badge p1'>P1</span> <span class='est'>4人天</span></div>
+<p class='us'>作为 <b>平台</b>，我希望 <b>设计质量评分卡（供创作者自检/平台审核）</b>，以便 <b>量化设计质量，支撑订阅分级与未来市场审核</b>。</p>
+<ul class='tasks'><li>评分维度配置</li><li>评分卡导出</li></ul>
+<div class='ac'><b>验收标准：</b>生成评分卡。</div></div>
+<h3>E8 · V1 验收：乙方讲师 DIY《新任管理者团队管理》</h3>
+<div class='story'><div class='sth'><span class='sid'>US8.1</span> <span class='badge p0'>P0</span> <span class='est'>8人天</span></div>
+<p class='us'>作为 <b>产品</b>，我希望 <b>乙方讲师 DIY 跑通：真实课程→可印刷线下 AVG 包</b>，以便 <b>验证‘trainer 把现有课变成 AVG’的产品假设</b>。</p>
+<ul class='tasks'><li>导入真实课程</li><li>跑通生成→编辑→预览→导出</li><li>讲师自评可用性</li></ul>
+<div class='ac'><b>验收标准：</b>产出可印刷离线包；讲师可独立操作。</div></div>
+<div class='story'><div class='sth'><span class='sid'>US8.2</span> <span class='badge p0'>P0</span> <span class='est'>6人天</span></div>
+<p class='us'>作为 <b>产品</b>，我希望 <b>速度/质量/成本验证（vs 代理基线）</b>，以便 <b>用数据证明碾压竞品</b>。</p>
+<ul class='tasks'><li>生产周期对比（小时 vs 1–3月）</li><li>Validators 通过率</li><li>成本对比（订阅 vs ¥50K+代理）</li></ul>
+<div class='ac'><b>验收标准：</b>速度≤小时级；质量通过 validators；成本远低于代理。</div></div>
+<h2>四、工作量汇总</h2>
+<table class='grid'><thead><tr><th>Epic</th><th>名称</th><th>合计</th><th>P0</th><th>P1</th></tr></thead><tbody><tr><td>E0</td><td>平台基座（创作者工作台）</td><td>18</td><td>14</td><td>4</td></tr><tr><td>E1</td><td>课程解析 → Course Package</td><td>15</td><td>10</td><td>5</td></tr><tr><td>E2</td><td>学习玩法映射 LGM（⭐核心差异点）</td><td>18</td><td>12</td><td>6</td></tr><tr><td>E3</td><td>12 阶段生成 Pipeline + Validators（设计生产）</td><td>31</td><td>28</td><td>3</td></tr><tr><td>E4</td><td>AVG 编辑器（Kit Authoring）</td><td>33</td><td>27</td><td>6</td></tr><tr><td>E5</td><td>设计期原型预览 / Playtest（作者试玩验证，非线上产品）</td><td>20</td><td>20</td><td>0</td></tr><tr><td>E6</td><td>线下交付物生成与导出（⭐红线：真正产出物）</td><td>29</td><td>26</td><td>3</td></tr><tr><td>E7</td><td>设计质量评估与迭代闭环（设计期，无线上数据）</td><td>10</td><td>0</td><td>10</td></tr><tr><td>E8</td><td>V1 验收：乙方讲师 DIY《新任管理者团队管理》</td><td>14</td><td>14</td><td>0</td></tr><tr class='tot'><td colspan='2'>合计</td><td>188</td><td>151</td><td>37</td></tr></tbody></table></div></body></html>

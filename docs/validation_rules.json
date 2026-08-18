@@ -1,0 +1,437 @@
+{
+  "schemaVersion": "1.0",
+  "description": "AVG Course Builder 设计期自动校验规则（Validation Gates）。由 Validator Agent 对 AVG Project JSON 求值。",
+  "severities": [
+    "BLOCKER",
+    "WARN",
+    "INFO"
+  ],
+  "execution": {
+    "load": "AVG Project JSON",
+    "autoField": "auto",
+    "blockerBlocksPublish": true,
+    "outputs": [
+      "kit.qualityReport"
+    ]
+  },
+  "nodeSchemas": {
+    "DecisionNode": {
+      "id": "",
+      "prompt": "",
+      "context": "",
+      "options": [
+        {
+          "id": "",
+          "label": "",
+          "tradeoff": "",
+          "leadsTo": "",
+          "consequence": ""
+        }
+      ]
+    },
+    "EndingNode": {
+      "id": "",
+      "type": "best|compromise|collapse",
+      "abilityRadar": {},
+      "closure": ""
+    },
+    "ReflectionNode": {
+      "aarSteps": {
+        "goal": "",
+        "event": "",
+        "gap": "",
+        "action": ""
+      },
+      "principles": [
+        "askBeforeTell",
+        "evidenceAnchored",
+        "nameBehaviorNotPerson"
+      ],
+      "commitment": "",
+      "takeawayTemplateRef": ""
+    },
+    "NPCEntity": {
+      "name": "",
+      "memory": "",
+      "motivation": "",
+      "agency": "",
+      "attitude": ""
+    },
+    "TakeawayTemplate": {
+      "kind": "abilityRadar|actionPlan|consensus",
+      "fields": []
+    }
+  },
+  "rules": [
+    {
+      "id": "VR-CO01",
+      "stage": "后果",
+      "path": "stages.decisions[].options[].consequence",
+      "auto": true,
+      "check": "每个 option.consequence 至少改变 1 个 statusVar 或 ability",
+      "severity": "BLOCKER",
+      "fail": "选择未产生可见能力/关系变化",
+      "source": "检查清单·Consequence"
+    },
+    {
+      "id": "VR-CO02",
+      "stage": "后果",
+      "path": "stages.consequences[].threshold",
+      "auto": true,
+      "check": "存在阈值门槛：某 statusVar/ability 达阈值解锁场景/结局/能力",
+      "severity": "WARN",
+      "fail": "缺少阈值开门机制（计量无意义）",
+      "source": "检查清单·Consequence"
+    },
+    {
+      "id": "VR-CO03",
+      "stage": "后果",
+      "path": "stages.endings / reflection（非最优路径）",
+      "auto": true,
+      "check": "非最高 ability 的路径也对应 unique content（结局/复盘）",
+      "severity": "WARN",
+      "fail": "存在唯一完美解，非最优路径无内容",
+      "source": "检查清单·Consequence"
+    },
+    {
+      "id": "VR-RE01",
+      "stage": "复盘",
+      "path": "stages.reflection[].aarSteps",
+      "auto": true,
+      "check": "aarSteps 四步齐全：goal/event/gap/action",
+      "severity": "BLOCKER",
+      "fail": "复盘缺少 AAR 结构化四步",
+      "source": "红线·Reflection"
+    },
+    {
+      "id": "VR-RE04",
+      "stage": "复盘",
+      "path": "kit.takeawayTemplates",
+      "auto": true,
+      "check": "kit 含 takeawayTemplates（abilityRadar / actionPlan / consensus 至少其一）",
+      "severity": "BLOCKER",
+      "fail": "离线包未内嵌可带走的成果模板",
+      "source": "红线·Reflection"
+    },
+    {
+      "id": "VR-RE02",
+      "stage": "复盘",
+      "path": "stages.reflection[].principles",
+      "auto": true,
+      "check": "含心理安全原则标记：askBeforeTell / evidenceAnchored / nameBehaviorNotPerson",
+      "severity": "WARN",
+      "fail": "复盘未贯彻心理安全原则",
+      "source": "检查清单·Reflection"
+    },
+    {
+      "id": "VR-RE03",
+      "stage": "复盘",
+      "path": "stages.reflection[].commitment",
+      "auto": true,
+      "check": "以具体、有时限的承诺收尾（commitment 字段非空）",
+      "severity": "WARN",
+      "fail": "复盘未落到具体行动承诺",
+      "source": "检查清单·Reflection"
+    },
+    {
+      "id": "VR-GR01",
+      "stage": "成长",
+      "path": "stages.growth.abilityRadar",
+      "auto": true,
+      "check": "stages.growth 含 abilityRadar 定义（用于复盘量化）",
+      "severity": "WARN",
+      "fail": "成长缺少可量化能力雷达",
+      "source": "检查清单·Growth"
+    },
+    {
+      "id": "VR-DE01",
+      "stage": "抉择",
+      "path": "stages.decisions[].options",
+      "auto": true,
+      "check": "每个 decision 的 options 长度 >= 2",
+      "severity": "BLOCKER",
+      "fail": "存在仅 1 个选项的『假抉择』",
+      "source": "红线·Decision"
+    },
+    {
+      "id": "VR-DE02",
+      "stage": "抉择",
+      "path": "stages.decisions[].options[].tradeoff",
+      "auto": true,
+      "check": "每个 option.tradeoff 非空 且 非『明显正确』",
+      "severity": "BLOCKER",
+      "fail": "选项缺少真实 trade-off（疑似对错题）",
+      "source": "红线·Decision"
+    },
+    {
+      "id": "VR-DE03",
+      "stage": "抉择",
+      "path": "stages.decisions[].options[].leadsTo / consequence",
+      "auto": true,
+      "check": "同一 decision 下不同 option 的 consequence/leadsTo 互不相同",
+      "severity": "BLOCKER",
+      "fail": "不同选择导致相同后果（illusion of choice）",
+      "source": "红线·Decision"
+    },
+    {
+      "id": "VR-DE04",
+      "stage": "抉择",
+      "path": "stages.decisions（跨节点间距）",
+      "auto": true,
+      "check": "决策平均间隔 ∈ [3,8] 节点 且 有变化（非恒定密度）",
+      "severity": "WARN",
+      "fail": "抉择密度恒定/过密，缺少呼吸",
+      "source": "检查清单·Decision"
+    },
+    {
+      "id": "VR-DE05",
+      "stage": "抉择",
+      "path": "（人工）",
+      "auto": false,
+      "check": "抉择从戏剧时刻自然涌现，未打断叙事",
+      "severity": "INFO",
+      "fail": "需人工确认抉择并非生硬插入",
+      "source": "红线·Decision"
+    },
+    {
+      "id": "VR-CH01",
+      "stage": "挑战",
+      "path": "stages.challenge / coursePackage.objectives / learningGameplayMap.mappings",
+      "auto": true,
+      "check": "len(stages.challenge)>=1 且 每个 objective 在 mappings 中被 mechanic∈{challenge,exploration,decision} 覆盖",
+      "severity": "BLOCKER",
+      "fail": "存在未被真实挑战覆盖的学习目标",
+      "source": "检查清单·Challenge"
+    },
+    {
+      "id": "VR-CH02",
+      "stage": "挑战",
+      "path": "stages.challenge[].clueSource",
+      "auto": true,
+      "check": "每个 challenge 含 clueSource 字段且指向 exploration 线索",
+      "severity": "WARN",
+      "fail": "挑战缺少可推理的线索来源（沦为直接讲授）",
+      "source": "检查清单·Challenge"
+    },
+    {
+      "id": "VR-CH03",
+      "stage": "挑战",
+      "path": "stages.challenge[].difficulty",
+      "auto": true,
+      "check": "每个 challenge 标注 difficulty∈{low,mid,high} 且非全部 high",
+      "severity": "WARN",
+      "fail": "挑战难度未标注或整体过高（无渐进）",
+      "source": "检查清单·Challenge"
+    },
+    {
+      "id": "VR-EX01",
+      "stage": "探索",
+      "path": "kit.cards.statusVars",
+      "auto": true,
+      "check": "len(kit.cards.statusVars) <= 7",
+      "severity": "BLOCKER",
+      "fail": "全局状态变量(flag)超过 7 个，存在组合爆炸风险",
+      "source": "心法·状态最小集"
+    },
+    {
+      "id": "VR-EX02",
+      "stage": "探索",
+      "path": "multiplayerDesign.groupExploration / infoDistributionRules",
+      "auto": true,
+      "check": "len(groupExploration)>=2 且各组 infoDistributionRules 互不相同",
+      "severity": "WARN",
+      "fail": "缺少多视角/信息差（各组探索内容雷同）",
+      "source": "检查清单·Exploration"
+    },
+    {
+      "id": "VR-EX03",
+      "stage": "探索",
+      "path": "multiplayerDesign.finalConvergenceNode",
+      "auto": true,
+      "check": "finalConvergenceNode 非空",
+      "severity": "WARN",
+      "fail": "缺少自然汇合点（瓶颈），分支可能组合爆炸",
+      "source": "检查清单·Exploration"
+    },
+    {
+      "id": "VR-EX04",
+      "stage": "探索",
+      "path": "stages.npcs[]",
+      "auto": true,
+      "check": "每个 npc 含 memory/motivation/agency 三字段且非空",
+      "severity": "WARN",
+      "fail": "NPC 缺记忆/动机/能动性三支柱（非活体）",
+      "source": "检查清单·Exploration"
+    },
+    {
+      "id": "VR-OFF01",
+      "stage": "离线包",
+      "path": "kit.script",
+      "auto": true,
+      "check": "kit.script 非空",
+      "severity": "BLOCKER",
+      "fail": "脚本/剧本为空",
+      "source": "检查清单·离线包"
+    },
+    {
+      "id": "VR-OFF02",
+      "stage": "离线包",
+      "path": "kit.cards",
+      "auto": true,
+      "check": "kit.cards 含 infoCards / npcCards / decisionCards / taskCards / statusVars 全部非空",
+      "severity": "BLOCKER",
+      "fail": "离线包卡片组件不全",
+      "source": "检查清单·离线包"
+    },
+    {
+      "id": "VR-OFF03",
+      "stage": "离线包",
+      "path": "kit.roleTracks",
+      "auto": true,
+      "check": "5 <= len(kit.roleTracks) <= 6",
+      "severity": "BLOCKER",
+      "fail": "角色分轨非 5–6 组",
+      "source": "检查清单·离线包"
+    },
+    {
+      "id": "VR-OFF04",
+      "stage": "离线包",
+      "path": "kit.facilitatorGuide",
+      "auto": true,
+      "check": "kit.facilitatorGuide 非空（DM 手册）",
+      "severity": "BLOCKER",
+      "fail": "缺引导师(DM)手册",
+      "source": "检查清单·离线包"
+    },
+    {
+      "id": "VR-OFF05",
+      "stage": "离线包",
+      "path": "kit.reflection / materialList",
+      "auto": true,
+      "check": "kit 含复盘物料（reflection 字段或 materialList 含复盘手册/知识卡片）",
+      "severity": "BLOCKER",
+      "fail": "缺复盘手册/知识卡片",
+      "source": "检查清单·离线包"
+    },
+    {
+      "id": "VR-OFF06",
+      "stage": "离线包",
+      "path": "multiplayerDesign.facilitatorPanel / syncNodes / finalConvergenceNode",
+      "auto": true,
+      "check": "三者均存在（保证 1 讲师带 6 组可行）",
+      "severity": "BLOCKER",
+      "fail": "多人运行设计缺失，1讲师无法带6组",
+      "source": "检查清单·离线包"
+    },
+    {
+      "id": "VR-OFF08",
+      "stage": "离线包",
+      "path": "kit.export.format",
+      "auto": true,
+      "check": "format 含 'pdf'（至少印刷就绪）",
+      "severity": "BLOCKER",
+      "fail": "未产出可印刷格式",
+      "source": "检查清单·离线包"
+    },
+    {
+      "id": "VR-OFF07",
+      "stage": "离线包",
+      "path": "kit.export.printSpec / materialList",
+      "auto": true,
+      "check": "两者非空（套用 offline_package_spec.md 规格）",
+      "severity": "WARN",
+      "fail": "缺少印刷规格/物料清单",
+      "source": "offline_package_spec"
+    },
+    {
+      "id": "VR-EN01",
+      "stage": "结局",
+      "path": "stages.endings",
+      "auto": true,
+      "check": "len(stages.endings) >= 2",
+      "severity": "BLOCKER",
+      "fail": "仅单一『通关』结局，缺少平行价值结局",
+      "source": "红线·Ending"
+    },
+    {
+      "id": "VR-EN02",
+      "stage": "结局",
+      "path": "（人工）",
+      "auto": false,
+      "check": "结局间无『真/假』排行，每个结局配得上其路径",
+      "severity": "WARN",
+      "fail": "疑似存在唯一真结局，弱化其他路径",
+      "source": "红线·Ending"
+    },
+    {
+      "id": "VR-EN03",
+      "stage": "结局",
+      "path": "stages.endings[].abilityRadar",
+      "auto": true,
+      "check": "每个 ending 含 abilityRadar 且彼此不同",
+      "severity": "WARN",
+      "fail": "不同结局未对应不同能力雷达（复盘不可区分）",
+      "source": "检查清单·Ending"
+    },
+    {
+      "id": "VR-EN04",
+      "stage": "结局",
+      "path": "（人工）",
+      "auto": false,
+      "check": "每个 ending 提供闭环（呼应开头目标/秘密）",
+      "severity": "INFO",
+      "fail": "需人工确认结局闭环",
+      "source": "检查清单·Ending"
+    },
+    {
+      "id": "VR-GEN01",
+      "stage": "通用",
+      "path": "决策图可达性",
+      "auto": true,
+      "check": "每个 option.leadsTo 指向存在的节点；从起点可达所有 ending；无死锁分支",
+      "severity": "BLOCKER",
+      "fail": "存在死锁/不可达分支",
+      "source": "门禁·分支健康"
+    },
+    {
+      "id": "VR-GEN03",
+      "stage": "通用",
+      "path": "exploration/decision/consequence/reflection",
+      "auto": true,
+      "check": "四者均非空（探索→决策→后果→复盘 完整闭环）",
+      "severity": "BLOCKER",
+      "fail": "缺少完整学习闭环（纯观看）",
+      "source": "门禁·学习深度"
+    },
+    {
+      "id": "VR-GEN04",
+      "stage": "通用",
+      "path": "learningGameplayMap.mappings + coursePackage.objectives",
+      "auto": true,
+      "check": "每个 objective 在 mappings 中 coverage=='full'",
+      "severity": "BLOCKER",
+      "fail": "学习目标未被游戏行为充分覆盖",
+      "source": "门禁·学习深度"
+    },
+    {
+      "id": "VR-GEN05",
+      "stage": "通用",
+      "path": "multiplayerDesign",
+      "auto": true,
+      "check": "facilitatorPanel + syncNodes + groupExploration/infoDistributionRules 完整（1讲师可运行6组）",
+      "severity": "BLOCKER",
+      "fail": "一个讲师无法同时运行六组",
+      "source": "门禁·线下可运营"
+    },
+    {
+      "id": "VR-GEN02",
+      "stage": "通用",
+      "path": "（启发式）",
+      "auto": true,
+      "check": "不存在唯一『最优攻略』直接破解（需权衡的多条路径存在）",
+      "severity": "WARN",
+      "fail": "疑似唯一最优解直接通关",
+      "source": "门禁·分支健康"
+    }
+  ]
+}
