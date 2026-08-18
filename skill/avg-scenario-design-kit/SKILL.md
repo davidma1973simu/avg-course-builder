@@ -52,8 +52,9 @@ description: >-
 | `references/design_checklists.md` | 设计期检查清单（按平台工作区/阶段 + 通用门禁） | Validation |
 | `references/validation_rules.md` | 自动校验规则（38 条，机器可读；同源 `validation_rules.json`） | Validation / 导出门禁 |
 | `references/offline_package_spec.md` | 线下产品包实体物料规格（纸张/卡牌尺寸/工艺/出血/成本锚） | 离线包导出（E6） |
+| `references/course_tiering.md` | 课程产品分层模型（3 层×2 类 矩阵、50/50 时间、盲区、资产打通） | 定价/交付/生产轴 |
 
-## 七条跨领域心法（调用前先读）
+## 八条跨领域心法（调用前先读）
 
 1. **受控的能动性（Constrained Agency）**：作者设计"可能性空间"，玩家在其中导航。
    用**虚构内的约束**（人物性格、环境、信息差、时间压力）而非任意限制来收口。
@@ -71,6 +72,11 @@ description: >-
 7. **核心假设：远场景 + 应用迁移桥（不可动摇）**：AVG 探索世界默认用**虚构类比（远）**情景制造心理安全，
    学员在虚构中体验/试错、沉淀方法论与工具；**复盘后必须强制「应用迁移桥」**——把所学迁移到学员自身真实工作挑战。
    **没有这条，学习与产品不成立**（校验 VR-RE05）。详见仓库 `docs/Core_Design_Assumption`。
+
+8. **产品分层 3×2 矩阵（定价 / 交付 / 生产轴）**：课程产品按【复杂度/时长 3 层 × 定制化程度 2 类】结构化。
+   - 3 层：L1 3h / L2 7h / L3 14h，AVG 探索固定占 **50%**，另 50% 为 导入 + 复盘结构化产出 + 工作场景应用 + 个人行为改变计划（IDP）。
+   - 2 类：C1 通用改编（已有课程转译）/ C2 定制业务赋能（先**萃取**再构建学习目标/内容/场景/能力/评价）。
+   设计任一门课先定 Tier 与 Track——它决定 AI 生成深度、离线包规格与定价套餐。详见 `docs/Course_Tiered_Matrix` 与 `references/course_tiering.md`。
 
 > 调用方式：根据当前任务，读取对应 `references/` 文件，提取机制/方法论/清单，
 > 结合 PRD 的 12 阶段流水线、AVG Project JSON Schema、Validation 门禁给出设计建议。

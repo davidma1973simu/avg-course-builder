@@ -15,8 +15,9 @@
 - **Competitor Comparison** —— 竞品功能对比详表（含"课程→剧本杀"产出物赛道）
 - **Capability Assets** —— AVG×剧本杀 设计能力资产库（可调用 Skill）
 - **Core_Design_Assumption** —— 核心设计假设（锁定）：远场景 + 强制应用迁移桥
+- **Course_Tiered_Matrix** —— 课程产品分层模型（3 层×2 类 矩阵、50/50 时间分配、盲区、资产打通）
 - **Sample_Input_Checklist** —— 样本课程输入清单（可编辑 Word / PPT：空白模板 + 情境领导示范）
-- **validation_rules.json** —— 38 条可机读自动校验规则（供 Validator Agent 消费，含 VR-RE05 应用迁移桥）
+- **validation_rules.json** —— 43 条可机读自动校验规则（供 Validator Agent 消费，含 VR-RE05 应用迁移桥 + VR-TIER 分层规则）
 
 **核心设计假设（锁定 · 不可动摇）**：AVG 探索世界默认采用「远」（虚构类比）情景；无论近 / 远，复盘后**必须强制「应用迁移桥」**把所学迁移到学员自身真实工作场景。**没有这条，学习与产品不成立**（校验 VR-RE05，BLOCKER）。
 
@@ -34,14 +35,16 @@ docs/                        # 最终交付文档（HTML 预览版 + Word 可分
   Competitor_Comparison.{html,docx}
   Capability_Assets.{html,docx}
   Core_Design_Assumption.{html,docx}   # 核心设计假设（锁定）
+  Course_Tiered_Matrix.{html,docx}     # 课程产品分层模型（3×2 矩阵）
   Sample_Input_Checklist.{docx,pptx}   # 样本输入清单（可编辑）
-  validation_rules.json      # 机器可读校验规则集
+  validation_rules.json      # 机器可读校验规则集（43 条）
 skill/avg-scenario-design-kit/   # 可调用能力资产 Skill（开发时一键加载）
   SKILL.md
-  references/                # AVG 机制库 / 剧本杀 playbook / 案例库 / 检查清单 / 物料规格 / 校验规则
+  references/                # AVG 机制库 / 剧本杀 playbook / 案例库 / 检查清单 / 物料规格 / 校验规则 / 课程分层
 scripts/                     # 单源生成器（已纳入仓库，可重跑刷新 docs/）
   gen_template.py           # 产出 Sample_Input_Checklist.docx/.pptx
   gen_core_assumption.py    # 产出 Core_Design_Assumption.html/.docx
+  gen_tier_matrix.py        # 产出 Course_Tiered_Matrix.html/.docx
   render_assets.py          # 由 Skill 源重渲染 Capability_Assets.html/.docx
   inject_prd.py             # 向 PRD 注入核心假设加注段
 ```
@@ -70,6 +73,7 @@ scripts/                     # 单源生成器（已纳入仓库，可重跑刷�
 | --- | --- | --- |
 | MRD / PRD | v2 | 定位改为「设计平台→线下包 / DIY」，线上运营划出范围 |
 | Task Backlog / Competitor | v2 | E5/E6 重构为设计期预览 / 离线包导出；竞品重框为线下包生产者 |
-| Capability Assets | v1 + ② ③ + 核心假设 | 接入自动校验规则 + 线下包实体物料规格 + 锁定「远场景/应用迁移桥」核心假设（VR-RE05） |
+| Capability Assets | v1 + ② ③ + 核心假设 + 课程分层 | 接入自动校验规则 + 线下包实体物料规格 + 锁定核心假设 + 沉淀 3×2 分层矩阵（course_tiering） |
 | Core_Design_Assumption | v1 | 核心设计假设（锁定）：远场景默认 + 强制应用迁移桥 |
+| Course_Tiered_Matrix | v1 | 课程产品分层模型（3 层×2 类 矩阵、50/50 时间、盲区、资产打通） |
 | Sample_Input_Checklist | v1 | 可编辑 Word/PPT 模板（空白 + 情境领导示范） |

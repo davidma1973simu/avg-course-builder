@@ -21,6 +21,7 @@ SECTIONS = [
     ("references/design_checklists.md", "04 · 设计期检查清单"),
     ("references/validation_rules.md", "05 · 自动校验规则"),
     ("references/offline_package_spec.md", "06 · 线下产品包实体物料规格"),
+    ("references/course_tiering.md", "07 · 课程产品分层模型（3×2）"),
 ]
 
 GREEN = "0E6B50"

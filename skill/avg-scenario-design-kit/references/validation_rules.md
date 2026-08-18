@@ -95,6 +95,16 @@
 | `VR-GEN05` | `multiplayerDesign` | facilitatorPanel + syncNodes + groupExploration/infoDistributionRules 完整（1讲师可运行6组） | **BLOCKER** | 一个讲师无法同时运行六组 | 自动 |
 | `VR-GEN02` | `（启发式）` | 不存在唯一『最优攻略』直接破解（需权衡的多条路径存在） | **WARN** | 疑似唯一最优解直接通关 | 自动 |
 
+### 分层（3×2 矩阵）
+
+| 规则ID | 检查对象 / JSON 路径 | 自动条件（伪代码） | 严重度 | 失败信息 | 执行 |
+| --- | --- | --- | --- | --- | --- |
+| `VR-TIER01` | `kit.totalDuration / stages.avgDuration` | avgDuration == totalDuration * 0.5（AVG 探索体验严格占 50%） | **BLOCKER** | AVG 时长未占总时长 50%，违反核心时间约束 | 自动 |
+| `VR-TIER02` | `stages.import / stages.reflection / stages.application / stages.idp` | 非 AVG 四活动齐全：导入/复盘/应用/IDP 均存在且非空 | **BLOCKER** | 非 AVG 50% 的四项活动缺失，培训无法落地 | 自动 |
+| `VR-TIER03` | `kit.extraction / kit.competencyModel` | Track=C2 时必含 extraction 与 competencyModel；C1 可豁免 | **WARN** | C2 缺少萃取阶段或能力模型 | 自动 |
+| `VR-TIER04` | `stages.decisions` | 决策节点最小数：L1≥1 / L2≥3 / L3≥5（按 kit.tier 校验） | **WARN** | 该层决策节点数低于复杂度下限 | 自动 |
+| `VR-TIER05` | `kit.priceAnchor / kit.effortAnchor` | 与 tier×track 建议区间匹配（L1·C1 0.5-1d/¥3-8K … L3·C2 10-20d/¥80-200K+） | **INFO** | 定价/工时锚偏离分层建议区间（人工复核） | 人工 |
+
 
 ---
 

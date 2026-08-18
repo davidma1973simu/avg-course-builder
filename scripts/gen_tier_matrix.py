@@ -1,0 +1,308 @@
+# -*- coding: utf-8 -*-
+# 课程产品分层模型 3x2 矩阵 单源生成器 -> HTML + DOCX
+import os
+from docx import Document
+from docx.shared import Pt, RGBColor
+
+OUT = os.path.join(os.path.dirname(__file__), "..", "docs")
+OUT = os.path.abspath(OUT)
+
+# ---------------- 内容块（单源） ----------------
+B = []
+def h1(t): B.append(("h1", t))
+def h2(t): B.append(("h2", t))
+def h3(t): B.append(("h3", t))
+def p(t): B.append(("p", t))
+def ul(items): B.append(("ul", items))
+def ol(items): B.append(("ol", items))
+def table(headers, rows, cls=""): B.append(("table", (headers, rows, cls)))
+def callout(t, kind="core"): B.append(("callout", (kind, t)))
+
+h1("课程产品分层模型 · 3×2 矩阵")
+callout("本矩阵把「课程 → AVG 场景化学习产品」按【复杂度/时长】与【定制化程度】两个轴结构化，"
+        "同时服务三件事：① 产品定价与套餐；② 交付物规格；③ AI 生成深度（生产工时）。"
+        "它建立在已锁定的核心假设之上：默认【远场景】（虚构类比，如星际探索），且 AVG 探索体验严格占总时长 50%，"
+        "另外 50% 必须是【导入 + 复盘结构化产出 + 工作场景应用 + 个人行为改变计划】——缺应用迁移桥，产品不成立（VR-RE05）。",
+        "core")
+
+h2("一、为什么需要这个矩阵")
+p("我们卖的不是「一个 AVG 工具」，而是面向乙方讲师 / 甲方 L&D 的【DIY 设计平台】，最终产出物是与竞品一致的"
+  "线下产品包。用户带进来的课程差异极大：有的已有成熟课件（情境领导），有的只是一句业务目标"
+  "（物业经理要做市场拓展）。如果不分层，平台既无法给出清晰的定价套餐，也无法告诉 AI 该生成多深。"
+  "3×2 矩阵把这种差异变成可配置的产品参数。")
+ul([
+    "定价/套餐轴：让乙方讲师清楚「我这门课该卖哪一档」，让平台订阅/项目制定价有据可依。",
+    "交付物轴：每一格对应一套明确的可印刷离线包组件清单与规格（见 offline_package_spec）。",
+    "生产轴：告诉 AI Pipeline 该跑到多深、抽取/生成多少节点、校验规则套用哪一子集。",
+])
+
+h2("二、两个维度的定义")
+h3("维度一 · 3 层（Tier）—— 按内容/场景复杂度与系统程度，对应总学习时长")
+table(
+    ["层", "总时长", "AVG 探索(50%)", "系统程度", "适用对象", "复杂度标志"],
+    [
+        ["L1 轻量切片", "3 小时", "1.5h", "单模块 / 单一能力点", "一个具体情境的「顿悟」", "单角色·单决策链·2–3 结局"],
+        ["L2 标准单元", "7 小时", "3.5h", "完整主题 / 2–3 能力点", "一个主题的系统掌握", "2–3 角色·3–4 决策节点·多结局·轻状态"],
+        ["L3 深度系列", "14 小时", "7h", "多模块 / 系统能力", "能力迁移到真实业务", "多视角·深度分支·状态系统·多轮复盘"],
+    ], "tier")
+p("三层呈递进：越深，分支/结局/角色/状态越多，复盘与应用落地的权重越高，多人课堂运行越复杂（组数与汇合机制）。")
+
+h3("维度二 · 2 类（Track）—— 按定制化程度")
+table(
+    ["类", "名称", "输入", "核心流程", "交付物特征", "定价逻辑"],
+    [
+        ["C1 通用改编", "Existing-to-AVG", "已有成熟课程（PPT + 教材）",
+         "转译：现有 LGM → 适配 AVG 节点（内容/能力已由原课程定义）",
+         "标准盒装包（可复制、边际成本低）", "订阅 / 按门改编费（低客单、高复制）"],
+        ["C2 定制业务赋能", "Bespoke Enablement", "业务目标 + 真实案例（无现成课件）",
+         "从萃取开始：主题建模→关键事件访谈→能力建模→场景挑战→评价设计",
+         "定制包（含萃取报告 + 能力模型 + 定制场景库 + 评价量表）", "项目制（高客单、含萃取与设计）"],
+    ], "track")
+callout("C2 比 C1 多一个【萃取（Extraction）】前置阶段：它不「改编」已有内容，而是先把业务目标"
+        "和真实事件「萃取」成学习目标、内容、场景挑战、能力要求与水平、评价方式。这是 C2 高价值与高客单的来源。",
+        "tip")
+
+h2("三、3×2 矩阵总览（六单元格）")
+table(
+    ["", "C1 通用改编（已有课程）", "C2 定制业务赋能（从业务目标出发）"],
+    [
+        ["L1 轻量切片 (3h)", "情境领导·单模块切片（如「诊断下属成熟度」）", "物业经理·单事件切片（如「一次收并购谈判」）"],
+        ["L2 标准单元 (7h)", "情境领导·完整课（S1–S4 风格匹配 + 两难）", "物业经理·市场拓展完整赋能（多事件→能力模型）"],
+        ["L3 深度系列 (14h)", "领导力系列（多模块，多日/系列）", "物业经理·市场拓展与收并购全业务赋能"],
+    ], "matrix")
+
+h2("四、50 / 50 时间分配模型（核心约束）")
+p("无论哪一层，AVG 探索体验固定占总时长 50%；其余 50% 是【非 AVG 工作坊活动】，由四项构成："
+  "① 导入（情境铺垫/目标共识）② 复盘结构化产出（AAR + 可带走产出物）"
+  "③ 工作场景应用（当堂把方法论迁移到真实任务）④ 个人行为改变计划 IDP（30–60 天行为契约）。")
+h3("非 AVG 50% 的四项活动 · 分层权重（设计建议，可调）")
+table(
+    ["活动（占非 AVG 50%）", "L1 (1.5h)", "L2 (3.5h)", "L3 (7h)", "随层变化逻辑"],
+    [
+        ["① 导入", "40% (0.6h)", "25% (0.9h)", "15% (1.05h)", "越深越少，前置共识已在前序建立"],
+        ["② 复盘结构化产出", "35% (0.5h)", "30% (1.05h)", "25% (1.75h)", "始终是高权重，但绝对时长随层放大"],
+        ["③ 工作场景应用", "15% (0.2h)", "25% (0.9h)", "35% (2.45h)", "越深越偏落地，套真实任务"],
+        ["④ 个人行为改变计划 IDP", "10% (0.2h)", "20% (0.7h)", "25% (1.75h)", "越深越强调长期行为契约"],
+    ], "time")
+callout("权重逻辑：浅层快速体验、轻应用；深层强落地——应用与 IDP 占比随层显著上升，"
+        "导入占比下降。这是「系统程度」递增在时间表上的直接体现。", "tip")
+callout("③ 与 ④ 不可混为一谈：工作场景应用是【当堂】把方法论套到真实业务任务（团队/业务层）；"
+        "IDP 是个人【30–60 天】的行为契约（个人层）。两者都要有独立模板，且都指向真实场景"
+        "（满足 VR-RE05 应用迁移桥）。", "warn")
+
+h2("五、六单元格详述")
+def cell(title, scene, obj, run, deliver, effort, price, case):
+    h3(title)
+    table(
+        ["维度", "说明"],
+        [
+            ["场景复杂度", scene],
+            ["学习对象与颗粒度", obj],
+            ["多人课堂运行", run],
+            ["交付物形态", deliver],
+            ["设计/生产工时锚", effort],
+            ["定价锚（建议）", price],
+            ["适用案例", case],
+        ], "cell")
+
+cell("L1·C1 轻量改编",
+     "单角色、单决策链、2–3 个平行价值结局；无状态系统或仅 1–2 个 flag。",
+     "一个具体情境的「顿悟」；单一能力点。",
+     "1 讲师带 4–6 组（每组 4–6 人）；引导脚本轻，单线汇合。",
+     "标准小盒：1 场景卡 + 角色卡 + 复盘卡 + 应用/IDP 单页。",
+     "0.5–1 人天（AI 生成为主，专家校验）。",
+     "¥3K–8K / 门，或订阅内含。",
+     "情境领导·「诊断下属成熟度」切片。")
+cell("L1·C2 轻量定制",
+     "同 L1 结构，但场景来自真实业务事件；含微能力模型（1–2 维度）。",
+     "单一业务事件的「做对一次」。",
+     "同 L1；场景为学员真实工作情境的脱敏版。",
+     "定制小盒 + 萃取单页（事件→能力→应用）。",
+     "2–3 人天（含轻萃取）。",
+     "¥8K–20K。",
+     "物业经理·「一次收并购谈判」切片。")
+cell("L2·C1 标准单元改编",
+     "2–3 角色、3–4 决策节点、多结局、轻状态（关系/资源）。",
+     "一个主题的系统掌握（2–3 能力点）。",
+     "1 讲师带 6 组；引导脚本中等，含 1–2 汇合节点。",
+     "标准盒：多场景卡 + 角色卡套组 + DM 手册 + 复盘手册 + 能力雷达模板。",
+     "1–2 人天。",
+     "¥8K–20K / 门。",
+     "情境领导·完整课（S1–S4 风格匹配 + 两难）。")
+cell("L2·C2 标准定制赋能",
+     "3–4 决策节点、多结局、轻状态；场景库来自多业务事件。",
+     "一个业务主题的完整赋能。",
+     "同 L2；含能力达标水平刻度与复盘雷达。",
+     "定制盒 + 萃取报告 + 能力模型卡 + 定制场景库 + 评价量表。",
+     "5–8 人天（含系统萃取）。",
+     "¥30K–80K。",
+     "物业经理·市场拓展完整赋能（多事件→能力模型）。")
+cell("L3·C1 深度系列改编",
+     "多视角、深度分支、状态系统、多结局；信息密度高。",
+     "多模块系统能力，跨情境迁移。",
+     "1 讲师带 6–8 组；多线并行 + 多次汇合，引导脚本深。",
+     "精装盒：全套（场景册 + 完整角色体系 + DM 手册 + 复盘手册 + 雷达 + IDP 跟踪）。",
+     "3–5 人天。",
+     "¥20K–50K / 门，或订阅高级档。",
+     "领导力系列（多模块，多日/系列课）。")
+cell("L3·C2 深度定制赋能",
+     "多视角 + 深度分支 + 状态系统 + 多轮复盘；场景库覆盖业务全链路。",
+     "业务系统能力，可量化改变。",
+     "同 L3；含业务指标挂钩的评价与跟踪机制。",
+     "定制精装盒 + 完整萃取报告 + 能力模型 + 定制场景库 + 评价量表 + IDP 跟踪表。",
+     "10–20 人天（深度萃取 + 多模块）。",
+     "¥80K–200K+（项目制）。",
+     "物业经理·市场拓展与收并购全业务赋能。")
+
+h2("六、盲区补充（主动完善）")
+ol([
+    "评价体系分层（Evaluation / Rubric）：L1 = 决策质量自评 + 知识确认；L2 = 能力雷达 + 行为承诺；"
+    "L3 = 行为改变追踪 + 业务指标。复盘「可带走产出物」规格需随层加深。",
+    "IDP 与「工作场景应用」的区分（见第四节提示）：前者个人长期契约，后者当堂业务落地，模板独立、不可混。",
+    "C2 萃取前置阶段（Extraction）：业务目标→主题建模→关键事件访谈→能力建模→评价设计。"
+    "这是 C2 独有输入，决定它从「业务目标」而非「现成 PPT」起步。",
+    "能力模型与水平（Proficiency Level）：C2 必须定义能力维度与达标水平（Novice→Proficient），"
+    "驱动场景挑战难度与雷达刻度；C1 直接复用原课程能力框架。",
+    "多人课堂运行强度（Facilitation）：引导脚本深度、分组机制、汇合节点复杂度随层递增；"
+    "L3 需「多线并行 + 汇合」设计，离线包须含同步/汇合节点物料。",
+    "迁移桥真实场景来源差异：C1 用行业通用案例（如情境领导「老周两难」）；"
+    "C2 用客户真实业务场景。VR-RE05 对两类都强制，但来源不同。",
+    "定价 / 商业模式：C1 = 订阅 / 按门改编（标准盒，复制边际低）；C2 = 项目制（含萃取+定制，高客单）。",
+    "交付物清单差异：C1 = 标准 AVG 包；C2 = 额外含萃取报告 + 能力模型卡 + 定制场景库 + 评价量表。",
+    "生产速度 / 成本碾压对照：对照手工剧本杀 1–3 月 / ¥5K–50K，本矩阵各层把单门从数周压缩到"
+    "0.5–20 人天、价格锚显著低于定制严肃游戏（€30K–80K / VR ¥150K–500K+）。",
+    "数据回流（虽为线下）：复盘产出物（能力雷达、IDP）由学员/讲师带回，可批量回收做课程迭代——"
+    "这是 C2 的高价值闭环，也是平台相对手工剧本杀的护城河。",
+    "质量门禁分层（Validation Tiering）：L1 可放宽叙事深度/分支数；L3 强制全量 VR 规则；"
+    "C2 强制萃取 + 能力模型校验（VR-TIER 系列）。",
+])
+
+h2("七、与现有产品资产的打通")
+table(
+    ["现有资产", "本矩阵如何接入"],
+    [
+        ["Pipeline（12 阶段）", "L 决定 Pipeline 深度（L1 可简化 Exploration）；C 决定输入阶段（C2 多 Extract 阶段）。"],
+        ["Learning Gameplay Map (LGM)", "L 决定 LGM 节点密度；C 决定内容来源（现有转译 vs 萃取新建）。"],
+        ["校验规则 validation_rules.json", "VR-TIER（时间/分层）+ VR-RE05（应用迁移桥）+ VR-OFF（离线包完整性，按层放宽）。"],
+        ["离线包规格 offline_package_spec", "50/50 对应离线包「AVG 组件」 vs 「工作坊组件」（导入卡/复盘手册/应用模板/IDP 卡）。"],
+        ["核心假设 Core_Design_Assumption", "50/50 与应用迁移桥是矩阵的时间骨架；远场景是默认世界观。"],
+    ], "wire")
+
+h2("八、待确认 / 可调项（设计假设，需你拍板）")
+ul([
+    "四活动在 50% 内的权重分配（本文为建议值，可按教学理念调整）。",
+    "定价锚数字（需按目标市场进一步校准）。",
+    "L3 是否允许拆成多天 / 系列课（影响离线包分册规格）。",
+    "C2 萃取由平台 Agent 自动化到什么程度，还是必须专家介入（影响工时与质量门禁）。",
+    "是否要为 C2 单独设计一个「萃取工作区」（Extract Workspace）作为 PRD 的新 Epic。",
+])
+
+h2("九、版本与来源")
+p("v1 · 初版 · 2026-08-18 · 由 David 提出的 3 层×2 类产品分层需求构建，"
+  "主动补充 11 项盲区并与现有 MRD/PRD/Skill 资产打通。待 David 评审后进入 PRD 第 3 节（产品分层/套餐）。")
+
+# ---------------- 渲染 HTML ----------------
+CSS = """
+:root{--ink:#1a1f29;--muted:#5b6675;--line:#e3e8ef;--bg:#ffffff;--accent:#0E6B50;--accent-soft:#e7f3ee;--warn:#9a3412;--warn-soft:#fef3e7;--core:#1e3a5f;--core-soft:#eaf1f8;}
+*{box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:#f6f8fa;margin:0;padding:32px 16px;line-height:1.7;}
+.wrap{max-width:980px;margin:0 auto;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:40px 44px;box-shadow:0 1px 3px rgba(0,0,0,.04);}
+h1{font-size:28px;margin:0 0 6px;letter-spacing:.5px;}
+h2{font-size:21px;margin:38px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--accent);color:var(--accent);}
+h3{font-size:17px;margin:24px 0 8px;color:var(--core);}
+p{margin:10px 0;color:#2b3240;}
+ul,ol{margin:10px 0;padding-left:22px;}
+li{margin:5px 0;}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;}
+th,td{border:1px solid var(--line);padding:9px 11px;vertical-align:top;text-align:left;}
+th{background:var(--accent-soft);color:var(--accent);font-weight:700;}
+tr:nth-child(even) td{background:#fafbfc;}
+.callout{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14px;border-left:4px solid;}
+.callout.core{background:var(--core-soft);border-color:var(--core);}
+.callout.tip{background:var(--accent-soft);border-color:var(--accent);}
+.callout.warn{background:var(--warn-soft);border-color:var(--warn);}
+.footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;}
+"""
+def esc(s):
+    return (s.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;"))
+def render_html():
+    parts = ["<!DOCTYPE html><html lang='zh'><head><meta charset='utf-8'>",
+             "<meta name='viewport' content='width=device-width,initial-scale=1'>",
+             "<title>课程产品分层模型 · 3×2 矩阵</title><style>"+CSS+"</style></head><body><div class='wrap'>"]
+    for blk in B:
+        k = blk[0]
+        if k=="h1": parts.append("<h1>%s</h1>"%esc(blk[1]))
+        elif k=="h2": parts.append("<h2>%s</h2>"%esc(blk[1]))
+        elif k=="h3": parts.append("<h3>%s</h3>"%esc(blk[1]))
+        elif k=="p": parts.append("<p>%s</p>"%esc(blk[1]))
+        elif k=="ul":
+            parts.append("<ul>"+"".join("<li>%s</li>"%esc(x) for x in blk[1])+"</ul>")
+        elif k=="ol":
+            parts.append("<ol>"+"".join("<li>%s</li>"%esc(x) for x in blk[1])+"</ol>")
+        elif k=="table":
+            headers, rows, cls = blk[1]
+            t="<table class='%s'><thead><tr>"%cls+"".join("<th>%s</th>"%esc(h) for h in headers)+"</tr></thead><tbody>"
+            for r in rows:
+                t+="<tr>"+"".join("<td>%s</td>"%esc(c) for c in r)+"</tr>"
+            t+="</tbody></table>"
+            parts.append(t)
+        elif k=="callout":
+            kind, txt = blk[1]
+            parts.append("<div class='callout %s'>%s</div>"%(kind, esc(txt)))
+    parts.append("<div class='footer'>AVG Course Builder · 课程产品分层模型 v1 · 单源生成（gen_tier_matrix.py）</div>")
+    parts.append("</div></body></html>")
+    return "\n".join(parts)
+
+# ---------------- 渲染 DOCX ----------------
+def set_cjk(run, size=10.5, bold=False, color=None):
+    run.font.name = "Microsoft YaHei"
+    run.font.size = Pt(size)
+    run.bold = bold
+    if color: run.font.color.rgb = RGBColor(*color)
+
+def render_docx(path):
+    doc = Document()
+    st = doc.styles["Normal"].font
+    st.name = "Microsoft YaHei"; st.size = Pt(10.5)
+    for blk in B:
+        k = blk[0]
+        if k=="h1":
+            pp = doc.add_heading(level=0); r = pp.add_run(blk[1]); set_cjk(r, 20, True)
+        elif k=="h2":
+            pp = doc.add_heading(level=1); r = pp.add_run(blk[1]); set_cjk(r, 15, True, (0x0E,0x6B,0x50))
+        elif k=="h3":
+            pp = doc.add_heading(level=2); r = pp.add_run(blk[1]); set_cjk(r, 12.5, True, (0x1e,0x3a,0x5f))
+        elif k=="p":
+            pp = doc.add_paragraph(); set_cjk(pp.add_run(blk[1]))
+        elif k=="ul":
+            for x in blk[1]:
+                pp = doc.add_paragraph(style="List Bullet"); set_cjk(pp.add_run(x))
+        elif k=="ol":
+            for x in blk[1]:
+                pp = doc.add_paragraph(style="List Number"); set_cjk(pp.add_run(x))
+        elif k=="table":
+            headers, rows, cls = blk[1]
+            t = doc.add_table(rows=1, cols=len(headers)); t.style = "Table Grid"
+            for i,h in enumerate(headers):
+                c = t.rows[0].cells[i]; set_cjk(c.paragraphs[0].add_run(h), 10, True)
+            for r in rows:
+                cells = t.add_row().cells
+                for i,c in enumerate(r):
+                    set_cjk(cells[i].paragraphs[0].add_run(c), 9.5)
+        elif k=="callout":
+            kind, txt = blk[1]
+            pp = doc.add_paragraph()
+            tag = {"core":"【核心】","tip":"【提示】","warn":"【警示】"}[kind]
+            r = pp.add_run(tag+" "); r.bold=True
+            set_cjk(r, 10.5, True, (0x0E,0x6B,0x50) if kind!="warn" else (0x9a,0x34,0x12))
+            set_cjk(pp.add_run(txt))
+    doc.save(path)
+
+if __name__ == "__main__":
+    os.makedirs(OUT, exist_ok=True)
+    hp = os.path.join(OUT, "Course_Tiered_Matrix.html")
+    dp = os.path.join(OUT, "Course_Tiered_Matrix.docx")
+    with open(hp, "w", encoding="utf-8") as f: f.write(render_html())
+    render_docx(dp)
+    print("HTML ->", hp, os.path.getsize(hp))
+    print("DOCX ->", dp, os.path.getsize(dp))

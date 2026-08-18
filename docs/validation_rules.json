@@ -447,6 +447,56 @@
       "severity": "BLOCKER",
       "fail": "缺少应用迁移桥，所学无法落地到真实工作",
       "source": "核心假设·应用迁移桥"
+    },
+    {
+      "id": "VR-TIER01",
+      "stage": "分层·时间分配",
+      "path": "kit.totalDuration / stages.avgDuration",
+      "auto": true,
+      "check": "avgDuration == totalDuration * 0.5（AVG 探索体验严格占 50%）",
+      "severity": "BLOCKER",
+      "fail": "AVG 时长未占总时长 50%，违反核心时间约束",
+      "source": "3x2 矩阵·50/50"
+    },
+    {
+      "id": "VR-TIER02",
+      "stage": "分层·时间分配",
+      "path": "stages.import / stages.reflection / stages.application / stages.idp",
+      "auto": true,
+      "check": "非 AVG 四活动齐全：导入(import)、复盘结构化产出(reflection)、工作场景应用(application)、个人行为改变计划(idp) 均存在且非空",
+      "severity": "BLOCKER",
+      "fail": "非 AVG 50% 的四项活动缺失，培训无法落地",
+      "source": "3x2 矩阵·50/50"
+    },
+    {
+      "id": "VR-TIER03",
+      "stage": "分层·C2 萃取",
+      "path": "kit.extraction / kit.competencyModel",
+      "auto": true,
+      "check": "Track=C2 时必含 extraction（萃取报告）与 competencyModel（能力模型+水平）；C1 可豁免",
+      "severity": "WARN",
+      "fail": "C2 缺少萃取阶段或能力模型，定制赋能不完整",
+      "source": "3x2 矩阵·C2"
+    },
+    {
+      "id": "VR-TIER04",
+      "stage": "分层·复杂度",
+      "path": "stages.decisions",
+      "auto": true,
+      "check": "决策节点最小数：L1≥1 / L2≥3 / L3≥5（按 kit.tier 校验）",
+      "severity": "WARN",
+      "fail": "该层的决策节点数低于复杂度下限",
+      "source": "3x2 矩阵·Tier"
+    },
+    {
+      "id": "VR-TIER05",
+      "stage": "分层·定价匹配",
+      "path": "kit.priceAnchor / kit.effortAnchor",
+      "auto": false,
+      "check": "priceAnchor/effortAnchor 与 tier×track 建议区间匹配（L1·C1 0.5-1d/¥3-8K … L3·C2 10-20d/¥80-200K+）",
+      "severity": "INFO",
+      "fail": "定价/工时锚偏离分层建议区间（人工复核）",
+      "source": "3x2 矩阵·盲区"
     }
   ]
 }
