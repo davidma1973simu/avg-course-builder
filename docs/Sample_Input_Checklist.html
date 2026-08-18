@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>样本课程输入清单 · 模板 + 示范（情境领导）</title>
+<style>
+  :root{
+    --ink:#1d2733; --sub:#5b6b7b; --line:#e3e8ef; --bg:#f7f9fc;
+    --accent:#0E6B50; --accent-soft:#e6f3ee; --warn:#b7791f; --warn-soft:#fdf3e3;
+    --must:#c0392b; --should:#b7791f; --nice:#0E6B50;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    color:var(--ink);background:#fff;line-height:1.7;font-size:15px}
+  .wrap{max-width:880px;margin:0 auto;padding:48px 28px 80px}
+  h1{font-size:27px;margin:0 0 6px;letter-spacing:.5px}
+  h2{font-size:21px;margin:42px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--accent)}
+  h3{font-size:16.5px;margin:26px 0 8px;color:var(--accent)}
+  .lead{color:var(--sub);margin:0 0 8px}
+  .tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:20px;margin-right:6px;vertical-align:middle}
+  .t-must{background:#fdecea;color:var(--must)}
+  .t-should{background:var(--warn-soft);color:var(--warn)}
+  .t-nice{background:var(--accent-soft);color:var(--accent)}
+  .card{border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:14px 0;background:var(--bg)}
+  .blank{border-left:4px solid #cbd5e1}
+  .filled{border-left:4px solid var(--accent);background:#fbfdfc}
+  label{display:block;font-weight:700;margin:14px 0 4px;color:var(--ink)}
+  .ph{color:#9aa7b4;font-style:italic}
+  .ex{color:#2c3a47}
+  textarea,.field{width:100%;border:1px dashed #cbd5e1;border-radius:8px;padding:10px 12px;background:#fff;
+    font-family:inherit;font-size:14.5px;color:var(--ink);min-height:46px;margin-top:4px}
+  .field.ex{border-style:solid;border-color:#bfe3d6;background:#fbfdfc;color:#2c3a47}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--accent-soft);color:var(--accent);font-weight:700}
+  .meta{font-size:13px;color:var(--sub);background:var(--warn-soft);border:1px solid #f0d9a8;
+    border-radius:10px;padding:12px 16px;margin:18px 0}
+  code{background:#eef2f7;padding:1px 6px;border-radius:5px;font-size:13px}
+  .pipe{background:#f4f7fb;border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:14px 0;font-size:13.5px;color:var(--sub)}
+  .pipe b{color:var(--ink)}
+  .foot{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--sub)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>样本课程输入清单</h1>
+  <p class="lead">用途：把一门真实课程喂给 <b>AVG Course Builder</b>，跑通「课程 → 剧本杀式场景化学习产品」的最小闭环。</p>
+  <p class="lead">用法：第一部分<b>空白模板</b>照填；第二部分<b>情境领导课程</b>为示范填写，照葫芦画瓢即可。</p>
+
+  <div class="meta">
+    📌 <b>怎么配合开发节奏：</b>你填完 → 我先做一份 <b>Learning Gameplay Map（LGM）</b> 给你确认 → 你点头后我再生成完整场景节点与线下产品包。
+    建议<b>一次只切 1 个最"有戏"的模块</b>做切片，别一上来整门课。
+  </div>
+
+  <!-- ===================== 空白模板 ===================== -->
+  <h2>一、空白模板（请照填）</h2>
+
+  <div class="card blank">
+    <h3>① 课程基本信息</h3>
+    <label>课程名称</label><div class="field"><span class="ph">【请填写】例如：新员工职业化素养</span></div>
+    <label>总时长 / 模块划分</label><div class="field"><span class="ph">【请填写】例如：1天(6h)，拆为4个模块；本次切片挑哪个模块？</span></div>
+    <label>目标学员（对象 + 层级）</label><div class="field"><span class="ph">【请填写】例如：新任一线主管 / 储备干部 / 销售新人</span></div>
+  </div>
+
+  <div class="card blank">
+    <span class="tag t-must">必须有</span><h3 style="display:inline">② 学习目标与能力模型</h3>
+    <div class="ph" style="margin:6px 0">学完这门课，学员应该"能做 / 能判断什么"？最好按"能力"而非"知识点"写。</div>
+    <label>核心能力（1–3 条）</label><div class="field"><span class="ph">【请填写】例如：能诊断下属状态 / 能匹配领导风格 / 能处理抗拒</span></div>
+    <label>现有教材里对应的章节/页码</label><div class="field"><span class="ph">【请填写】便于我精确定位原文，避免瞎编</span></div>
+  </div>
+
+  <div class="card blank">
+    <span class="tag t-must">必须有</span><h3 style="display:inline">③ 学员对象与真实场景背景</h3>
+    <div class="field"><span class="ph">【请填写】学员日常面对什么真实情境/痛点？决定角色人设和剧情是否接地气。</span></div>
+  </div>
+
+  <div class="card blank">
+    <span class="tag t-must">必须有</span><h3 style="display:inline">④ 现有考核与课堂活动</h3>
+    <div class="field"><span class="ph">【请填写】现在怎么考？有没有小组讨论/角色扮演/案例分析/测评？这些是直接可转成 Decision/Reflection 节点的金矿。</span></div>
+  </div>
+
+  <div class="card blank">
+    <span class="tag t-should">强烈建议</span><h3 style="display:inline">⑤ 标志性案例 / 真实两难情境</h3>
+    <div class="field"><span class="ph">【请填写】课程里最出彩的真实故事、最纠结的抉择——这是 AVG 的叙事脊梁。</span></div>
+  </div>
+
+  <div class="card blank">
+    <span class="tag t-should">强烈建议</span><h3 style="display:inline">⑥ "好课"的参照</h3>
+    <div class="field"><span class="ph">【请填写】有没有引导话术/DM脚本/学员"顿悟时刻"的描述？直接影响 Reflection 设计。</span></div>
+  </div>
+
+  <div class="card blank">
+    <span class="tag t-nice">包装边界</span><h3 style="display:inline">⑦ 品牌 / 视觉 / 脱敏要求</h3>
+    <div class="field"><span class="ph">【请填写】能否用真实公司名？要不要统一色调字体？人物是否需化名？</span></div>
+  </div>
+
+  <div class="card blank">
+    <span class="tag t-nice">包装边界</span><h3 style="display:inline">⑧ 期望产出形态</h3>
+    <div class="field"><span class="ph">【请填写】纯剧本杀式 / 轻量分支 / 两者混合？几人一组、几组同场？</span></div>
+  </div>
+
+  <div class="card blank">
+    <span class="tag t-nice">验收</span><h3 style="display:inline">⑨ 试点成功标准</h3>
+    <div class="field"><span class="ph">【请填写】这份样本做到什么程度算"成了"？能试玩 / 能打印 / 能真用于一期培训？</span></div>
+  </div>
+
+  <div class="card blank">
+    <h3>⑩ 文件清单（附上 PPT + 教材）</h3>
+    <div class="field"><span class="ph">【请填写】授课PPT路径/文件名 + 教材路径/文件名（.pptx / .pdf / .docx 均可）</span></div>
+  </div>
+
+  <!-- ===================== 示范填写 ===================== -->
+  <h2>二、示范填写 · 情境领导课程</h2>
+  <p class="lead">示范课程：<b>《情境领导®》（Situational Leadership）企业内训</b>——照此格式填你自己的课即可。</p>
+
+  <div class="card filled">
+    <h3>① 课程基本信息</h3>
+    <label>课程名称</label><div class="field ex">情境领导®（Situational Leadership®）企业内训</div>
+    <label>总时长 / 模块划分</label><div class="field ex">1 天（6h），4 个模块：①领导风格 ②下属成熟度 ③风格匹配 ④实战演练。<b>本次切片挑模块③「风格匹配」+ 模块④「实战演练」</b>（最"有戏"，直接涉及抉择与复盘）。</div>
+    <label>目标学员（对象 + 层级）</label><div class="field ex">新任一线主管、储备干部（管理岗 0–2 年，刚从业务骨干提拔）。</div>
+  </div>
+
+  <div class="card filled">
+    <span class="tag t-must">必须有</span><h3 style="display:inline">② 学习目标与能力模型</h3>
+    <label>核心能力（1–3 条）</label>
+    <div class="field ex">
+      1. 能按"能力 × 意愿"诊断下属所处成熟度 <b>R1–R4</b>；<br>
+      2. 能匹配对应领导风格 <b>S1指令 / S2教练 / S3支持 / S4授权</b>；<br>
+      3. 在真实带人冲突中，能放下"一种风格走天下"的惯性，灵活切换。
+    </div>
+    <label>现有教材里对应的章节/页码</label><div class="field ex">教材第 3 章《成熟度诊断》（P41–58）、第 4 章《四风格匹配》（P59–77）。</div>
+  </div>
+
+  <div class="card filled">
+    <span class="tag t-must">必须有</span><h3 style="display:inline">③ 学员对象与真实场景背景</h3>
+    <div class="field ex">学员刚被提拔，常见痛点：①技术骨干升主管后，管不住昔日"老朋友/老同事"；②对高意愿低能力的新人不敢放手、过度指挥；③对低意愿老员工一味授权却失控。场景普遍、情绪强，天然适合角色扮演。</div>
+  </div>
+
+  <div class="card filled">
+    <span class="tag t-must">必须有</span><h3 style="display:inline">④ 现有考核与课堂活动</h3>
+    <div class="field ex">
+      • 考核：课后书面测（成熟度判断选择题）+ 角色扮演评估表；<br>
+      • 课堂活动：<b>成熟度诊断练习</b>（给案例判 R1–R4）、<b>风格匹配讨论</b>（案例该用 S 几）、<b>双人角色扮演</b>（一人当主管一人当下属，按设定成熟度互动）。<br>
+      → 这些正好对应 AVG 的 Decision 节点（选风格）与 Reflection 节点（复盘评估表）。
+    </div>
+  </div>
+
+  <div class="card filled">
+    <span class="tag t-should">强烈建议</span><h3 style="display:inline">⑤ 标志性案例 / 真实两难情境</h3>
+    <div class="field ex">
+      <b>「老周的两难」</b>：老周是销售冠军，新提拔带 5 人团队。手下小赵（高意愿低能力，R2）总出错，老周嫌烦直接替他做（滑向 S1 过度指令）；而老员工阿强（低意愿但因资历傲，近 R3）不服"以前平起平坐现在被管"，老周又不敢管（滑向 S4 过度授权）。<br>
+      <b>两难</b>：对阿强，是硬管（伤关系）还是顺着（失管控）？——这就是剧本的核心抉择场景。
+    </div>
+  </div>
+
+  <div class="card filled">
+    <span class="tag t-should">强烈建议</span><h3 style="display:inline">⑥ "好课"的参照</h3>
+    <div class="field ex">经典"顿悟时刻"：学员第一次意识到"我之前一直用 S1 命令式对待那个其实已经 R3 的老员工，难怪他摆烂"。引导师话术："先诊断，再领导——别让风格跑在成熟度前面。"可放进 Reflection 的"知识卡片"。</div>
+  </div>
+
+  <div class="card filled">
+    <span class="tag t-nice">包装边界</span><h3 style="display:inline">⑦ 品牌 / 视觉 / 脱敏要求</h3>
+    <div class="field ex">可用虚构公司「华晟科技」；人物一律化名；保留"情境领导®"方法原名（属公开方法论，非保密）；视觉走专业冷静蓝灰，避免卡通化（企业培训调性）。</div>
+  </div>
+
+  <div class="card filled">
+    <span class="tag t-nice">包装边界</span><h3 style="display:inline">⑧ 期望产出形态</h3>
+    <div class="field ex"><b>剧本杀式 + 轻量分支混合</b>：每组 5–6 人，分饰"新任主管 / 不同成熟度下属 / 观察者"；1 名引导师带 5–6 组同场。关键抉择点（选 S1–S4）走分支，不同选择进入不同团队走向。</div>
+  </div>
+
+  <div class="card filled">
+    <span class="tag t-nice">验收</span><h3 style="display:inline">⑨ 试点成功标准</h3>
+    <div class="field ex">能直接用于一期"新任管理者"培训：学员在剧本中做出风格抉择 → 系统记录决策轨迹 → 复盘时生成<b>个人领导风格雷达图 + 行动计划</b>。可打印成离线包（角色卡/线索卡/DM手册/复盘手册）。</div>
+  </div>
+
+  <div class="card filled">
+    <h3>⑩ 文件清单（附上 PPT + 教材）</h3>
+    <div class="field ex">授课PPT：情境领导_内训_v3.pptx（62 页）<br>教材：情境领导学员手册.pdf（88 页，含前述 P41–77 章节）</div>
+  </div>
+
+  <div class="pipe">
+    <b>🔗 输入如何喂给引擎（情境领导 → Pipeline 映射示意）：</b><br>
+    Course → <b>Capability</b>（诊断成熟度 R1–R4） → <b>Behavior</b>（匹配 S1–S4） → <b>Challenge</b>（老周管不住团队） → <b>Exploration</b>（收集下属信号：态度/产出/求助） → <b>Decision</b>（对阿强选哪种风格，真实 trade-off） → <b>Consequence</b>（关系/绩效分支） → <b>Growth</b>（风格切换意识） → <b>Ending</b>（平行价值结局：管住了但关系紧 / 关系好但失管控，皆非"对错"） → <b>Reflection</b>（AAR 四步 + 风格雷达图 + 行动计划）。
+  </div>
+
+  <div class="foot">
+    本文档为 AVG Course Builder 项目资料 · 模板可复制复用 · 示范案例「情境领导」仅作格式参考，实际内容以你提供的课程为准。
+  </div>
+
+</div>
+</body>
+</html>
