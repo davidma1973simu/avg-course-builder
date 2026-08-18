@@ -43,6 +43,10 @@ ITEMS = [
      "这份样本做到什么程度算“成了”（能试玩？能打印？能真用于一期培训？）。"),
     ("10", "文件清单（附 PPT + 教材）", "🔴 必填",
      "列出你附上的文件：授课 PPT 路径、教材（PDF/Word）路径，并简述每份文件讲什么。"),
+    ("11", "分层与前置判定（Tier × Track）", "🟠 建议",
+     "这门课打算做成哪一层？——L1 轻量切片 3h / L2 标准单元 7h / L3 深度系列 14h（AVG 探索固定占 50%）。"
+     "哪一类？——C1 通用改编（已有课程转译）/ C2 定制业务赋能（从业务目标萃取构建）。"
+     "给出非 AVG 50% 内 导入/复盘/应用/IDP 的大致分配。Intake Agent 会复核此判定。"),
 ]
 
 EXAMPLE = [
@@ -70,12 +74,15 @@ EXAMPLE = [
      "能打印成离线包、由客户内部讲师带 1 期 20 人工作坊、学员产出“我的风格调整行动计划”。"),
     ("10 · 文件清单",
      "授课 PPT：SL_PPT.pptx（含四模块、匹配测验）；教材：SL_Manual.pdf（情境领导原著节选 + 案例）。"),
+    ("11 · 分层与前置判定",
+     "Tier = L2 标准单元（7h：AVG 3.5h + 非 AVG 3.5h）；Track = C1 通用改编（情境领导已有完整课件）。"
+     "非 AVG 50% 分配：导入 0.9h / 复盘 1.05h / 应用 0.9h / IDP 0.7h。"),
 ]
 
 PIPELINE = (
-    "课程 → 能力(Capability) → 行为(Behavior) → 挑战(Challenge) → 探索(Exploration) → "
-    "抉择(Decision) → 后果(Consequence) → 成长(Growth) → 结局(Ending) → 复盘(Reflection) → "
-    "【应用迁移桥 Application · 强制】"
+    "【第 0 步 课程准入与分层判定 Intake & Tiering】→ 课程 → 能力(Capability) → 行为(Behavior) → "
+    "挑战(Challenge) → 探索(Exploration) → 抉择(Decision) → 后果(Consequence) → 成长(Growth) → "
+    "结局(Ending) → 复盘(Reflection) → 【应用迁移桥 Application · 强制】"
 )
 
 # ---------- CJK 字体 helper ----------

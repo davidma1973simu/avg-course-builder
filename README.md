@@ -17,9 +17,11 @@
 - **Core_Design_Assumption** —— 核心设计假设（锁定）：远场景 + 强制应用迁移桥
 - **Course_Tiered_Matrix** —— 课程产品分层模型（3 层×2 类 矩阵、50/50 时间分配、盲区、资产打通）
 - **Sample_Input_Checklist** —— 样本课程输入清单（可编辑 Word / PPT：空白模板 + 情境领导示范）
-- **validation_rules.json** —— 43 条可机读自动校验规则（供 Validator Agent 消费，含 VR-RE05 应用迁移桥 + VR-TIER 分层规则）
+- **validation_rules.json** —— 44 条可机读自动校验规则（供 Validator Agent 消费，含 VR-RE05 应用迁移桥 + VR-TIER 分层 + VR-INTAKE01 前置判定）
 
 **核心设计假设（锁定 · 不可动摇）**：AVG 探索世界默认采用「远」（虚构类比）情景；无论近 / 远，复盘后**必须强制「应用迁移桥」**把所学迁移到学员自身真实工作场景。**没有这条，学习与产品不成立**（校验 VR-RE05，BLOCKER）。
+
+**课程分层前置判定（设计要求 · 主流程第 0 阶段）**：任何课程进入平台，**先完成【Intake & Tiering】**（Tier L1/L2/L3 × Track C1/C2，AVG 探索占 50%）——判定后才进入 Pipeline（VR-INTAKE01 无判定不得进入；VR-TIER01–05 分层约束）。清单第 11 项「分层与前置判定」由课程主人预先自评。详见 Course_Tiered_Matrix。
 
 定位澄清（v2 起）：平台承载**设计功能**，最终产出物是和竞品一样的**线下产品包**（实体教学材料 + 形式载体），在线下由引导师运营。**线上运营（实时多人 SaaS / LMS / 在线数据采集）不在产品范围**。
 
@@ -75,5 +77,5 @@ scripts/                     # 单源生成器（已纳入仓库，可重跑刷�
 | Task Backlog / Competitor | v2 | E5/E6 重构为设计期预览 / 离线包导出；竞品重框为线下包生产者 |
 | Capability Assets | v1 + ② ③ + 核心假设 + 课程分层 | 接入自动校验规则 + 线下包实体物料规格 + 锁定核心假设 + 沉淀 3×2 分层矩阵（course_tiering） |
 | Core_Design_Assumption | v1 | 核心设计假设（锁定）：远场景默认 + 强制应用迁移桥 |
-| Course_Tiered_Matrix | v1 | 课程产品分层模型（3 层×2 类 矩阵、50/50 时间、盲区、资产打通） |
+| Course_Tiered_Matrix | v1 + 前置判定 | 3×2 矩阵；作为设计要求注入 PRD（Pipeline 第 0 阶段 Intake & Tiering）；清单第 11 项自评；VR-INTAKE01 无判定不得进 Pipeline |
 | Sample_Input_Checklist | v1 | 可编辑 Word/PPT 模板（空白 + 情境领导示范） |

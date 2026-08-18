@@ -104,6 +104,7 @@
 | `VR-TIER03` | `kit.extraction / kit.competencyModel` | Track=C2 时必含 extraction 与 competencyModel；C1 可豁免 | **WARN** | C2 缺少萃取阶段或能力模型 | 自动 |
 | `VR-TIER04` | `stages.decisions` | 决策节点最小数：L1≥1 / L2≥3 / L3≥5（按 kit.tier 校验） | **WARN** | 该层决策节点数低于复杂度下限 | 自动 |
 | `VR-TIER05` | `kit.priceAnchor / kit.effortAnchor` | 与 tier×track 建议区间匹配（L1·C1 0.5-1d/¥3-8K … L3·C2 10-20d/¥80-200K+） | **INFO** | 定价/工时锚偏离分层建议区间（人工复核） | 人工 |
+| `VR-INTAKE01` | `kit.intake` | kit.intake 含 tier(L1/L2/L3)、track(C1/C2)、totalDuration、avgDuration(==50%)；无判定不得进入 Pipeline | **BLOCKER** | 课程未完成分层前置判定，禁止进入 Pipeline | 自动 |
 
 
 ---

@@ -497,6 +497,16 @@
       "severity": "INFO",
       "fail": "定价/工时锚偏离分层建议区间（人工复核）",
       "source": "3x2 矩阵·盲区"
+    },
+    {
+      "id": "VR-INTAKE01",
+      "stage": "前置判定·Intake",
+      "path": "kit.intake",
+      "auto": true,
+      "check": "kit.intake 含 tier(L1|L2|L3)、track(C1|C2)、totalDuration、avgDuration(==50%)；无判定不得进入 Pipeline",
+      "severity": "BLOCKER",
+      "fail": "课程未完成分层前置判定，禁止进入 Pipeline",
+      "source": "课程分层 3×2 · 设计前前置判定"
     }
   ]
 }
